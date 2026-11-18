@@ -1,0 +1,20 @@
+[package]
+name = "macmetry-store"
+description = "macmetry history in SQLite: raw samples, minute aggregates, retention and queries."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+macmetry-core.workspace = true
+dirs.workspace = true
+rusqlite.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[lints]
+workspace = true
