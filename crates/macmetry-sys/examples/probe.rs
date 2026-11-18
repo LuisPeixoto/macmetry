@@ -3,7 +3,7 @@
 
 use macmetry_sys::{
     cpu::CpuCollector, disk::DiskCollector, gpu, memory::MemoryCollector, network::NetworkCollector,
-    process::ProcessCollector, system, thermal::ThermalCollector,
+    process::ProcessCollector, sensors::SensorCollector, system, thermal::ThermalCollector,
 };
 use serde_json::json;
 use std::time::{Duration, Instant};
@@ -14,6 +14,12 @@ fn main() {
     let mut disk = DiskCollector::new();
     let mut network = NetworkCollector::new();
     let mut processes = ProcessCollector::new();
+    let discovery = Instant::now();
+    let sensors = SensorCollector::new();
+    eprintln!("sensor discovery took {:?}", discovery.elapsed());
+    let reading = Instant::now();
+    let sensor_reading = sensors.as_ref().ok().and_then(|s| s.sample().ok());
+    eprintln!("one sensor reading took {:?}", reading.elapsed());
     let thermal = ThermalCollector::new();
     let started = Instant::now();
     std::thread::sleep(Duration::from_secs(1));
@@ -26,6 +32,8 @@ fn main() {
         "disks": disk.sample(elapsed).ok(),
         "network": network.sample(elapsed).ok(),
         "gpus": gpu::read().ok(),
+        "sensors": sensor_reading.as_ref().map(|(s, _)| s),
+        "system_power_w": sensor_reading.as_ref().and_then(|(_, w)| *w),
         "thermal_pressure": thermal.and_then(|t| t.sample()),
         "processes": processes.sample(elapsed).ok().map(|all| {
             json!({ "readable": all.len(), "top_cpu": macmetry_core::top(&all, macmetry_core::ProcessSort::Cpu, 5, None),
