@@ -134,6 +134,12 @@ impl Sampler {
         self.capabilities
     }
 
+    /// How long ago the previous sample (or the baseline) was taken. A caller that needs meaningful rates waits
+    /// until this is long enough.
+    pub fn idle_for(&self) -> Duration {
+        self.last.elapsed()
+    }
+
     /// Measures everything now. Rates cover the time since the previous call (or since [`Sampler::new`]).
     pub fn sample(&mut self, options: SampleOptions) -> Snapshot {
         let now = Instant::now();
@@ -274,6 +280,15 @@ mod tests {
         assert!(Metric::MemoryUsedPct.value(&s).is_some());
         assert_eq!(Metric::BatteryPercent.value(&s).is_some(), caps.battery);
         assert_eq!(Metric::TempMax.value(&s).is_some(), caps.temperatures);
+    }
+
+    #[test]
+    fn knows_how_long_ago_it_last_sampled() {
+        let mut sampler = Sampler::new();
+        std::thread::sleep(Duration::from_millis(120));
+        assert!(sampler.idle_for() >= Duration::from_millis(100));
+        sampler.sample(SampleOptions { processes: false, ..Default::default() });
+        assert!(sampler.idle_for() < Duration::from_millis(100), "sampling resets the clock");
     }
 
     #[test]
