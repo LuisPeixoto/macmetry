@@ -2,8 +2,16 @@
 //! fixtures: `cargo run -p macmetry-sys --example probe`.
 
 use macmetry_sys::{
-    cpu::CpuCollector, disk::DiskCollector, gpu, memory::MemoryCollector, network::NetworkCollector,
-    process::ProcessCollector, sensors::SensorCollector, system, thermal::ThermalCollector,
+    cpu::CpuCollector,
+    disk::DiskCollector,
+    gpu, hid,
+    ioreport::{EnergyCollector, IntelEnergyCollector},
+    memory::MemoryCollector,
+    network::NetworkCollector,
+    process::ProcessCollector,
+    sensors::SensorCollector,
+    system,
+    thermal::ThermalCollector,
 };
 use serde_json::json;
 use std::time::{Duration, Instant};
@@ -14,6 +22,8 @@ fn main() {
     let mut disk = DiskCollector::new();
     let mut network = NetworkCollector::new();
     let mut processes = ProcessCollector::new();
+    let mut apple_energy = EnergyCollector::new().ok();
+    let mut intel_energy = IntelEnergyCollector::new().ok();
     let discovery = Instant::now();
     let sensors = SensorCollector::new();
     eprintln!("sensor discovery took {:?}", discovery.elapsed());
@@ -32,6 +42,8 @@ fn main() {
         "disks": disk.sample(elapsed).ok(),
         "network": network.sample(elapsed).ok(),
         "gpus": gpu::read().ok(),
+        "power": apple_energy.as_mut().and_then(|e| e.sample().ok()).or_else(|| intel_energy.as_mut().and_then(|e| e.sample().ok())),
+        "hid_temperatures": hid::read_temperatures(),
         "sensors": sensor_reading.as_ref().map(|(s, _)| s),
         "system_power_w": sensor_reading.as_ref().and_then(|(_, w)| *w),
         "thermal_pressure": thermal.and_then(|t| t.sample()),
