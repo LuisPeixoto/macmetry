@@ -31,6 +31,10 @@ pub mod network;
 #[cfg(target_os = "macos")]
 pub mod process;
 #[cfg(target_os = "macos")]
+pub mod sensors;
+#[cfg(target_os = "macos")]
+pub mod smc;
+#[cfg(target_os = "macos")]
 pub mod sysctl;
 #[cfg(target_os = "macos")]
 pub mod system;
