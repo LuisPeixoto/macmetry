@@ -41,6 +41,18 @@ unsafe extern "C" {
     fn CFDictionaryGetCount(d: CFTypeRef) -> CFIndex;
     fn CFDictionaryGetKeysAndValues(d: CFTypeRef, keys: *mut CFTypeRef, values: *mut CFTypeRef);
     fn CFDictionaryGetValue(d: CFTypeRef, key: CFTypeRef) -> CFTypeRef;
+    fn CFDictionaryCreateMutableCopy(alloc: CFTypeRef, capacity: CFIndex, d: CFTypeRef) -> CFTypeRef;
+    fn CFDictionaryCreate(
+        alloc: CFTypeRef,
+        keys: *const CFTypeRef,
+        values: *const CFTypeRef,
+        count: CFIndex,
+        key_callbacks: *const c_void,
+        value_callbacks: *const c_void,
+    ) -> CFTypeRef;
+    fn CFNumberCreate(alloc: CFTypeRef, kind: isize, value: *const c_void) -> CFTypeRef;
+    static kCFTypeDictionaryKeyCallBacks: c_void;
+    static kCFTypeDictionaryValueCallBacks: c_void;
     fn CFArrayGetCount(a: CFTypeRef) -> CFIndex;
     fn CFArrayGetValueAtIndex(a: CFTypeRef, index: CFIndex) -> CFTypeRef;
     fn CFDataGetLength(d: CFTypeRef) -> CFIndex;
@@ -97,6 +109,46 @@ impl Owned {
         }
         // SAFETY: `entry` is a valid borrowed object that lives as long as `self`.
         Some(unsafe { to_value(entry, 0) })
+    }
+
+    /// A mutable copy of a dictionary, which some private APIs insist on.
+    pub fn mutable_copy(&self) -> Option<Self> {
+        // SAFETY: `self.0` is a valid dictionary; a null allocator means the default one.
+        unsafe { Self::from_create(CFDictionaryCreateMutableCopy(std::ptr::null(), 0, self.0)) }
+    }
+
+    /// A dictionary whose keys are strings and whose values are integers.
+    pub fn int_dictionary(entries: &[(&str, i64)]) -> Option<Self> {
+        let keys: Vec<Self> = entries.iter().map(|(k, _)| Self::string(k)).collect::<Option<_>>()?;
+        let values: Vec<Self> = entries
+            .iter()
+            .map(|(_, v)| {
+                // SAFETY: `v` is a valid `i64` and the number type says so.
+                unsafe { Self::from_create(CFNumberCreate(std::ptr::null(), NUMBER_SINT64, (v as *const i64).cast())) }
+            })
+            .collect::<Option<_>>()?;
+        let key_ptrs: Vec<CFTypeRef> = keys.iter().map(Self::as_ptr).collect();
+        let value_ptrs: Vec<CFTypeRef> = values.iter().map(Self::as_ptr).collect();
+        // SAFETY: the arrays have `count` valid objects, which the dictionary retains; the callbacks are the
+        // standard CoreFoundation ones.
+        unsafe {
+            Self::from_create(CFDictionaryCreate(
+                std::ptr::null(),
+                key_ptrs.as_ptr(),
+                value_ptrs.as_ptr(),
+                key_ptrs.len() as CFIndex,
+                (&raw const kCFTypeDictionaryKeyCallBacks).cast(),
+                (&raw const kCFTypeDictionaryValueCallBacks).cast(),
+            ))
+        }
+    }
+
+    /// The raw entry of a dictionary, borrowed from `self`. Null-safe: `None` when the key is absent.
+    pub fn dict_ptr(&self, key: &str) -> Option<CFTypeRef> {
+        let key = Self::string(key)?;
+        // SAFETY: both objects are valid; the entry is borrowed from the dictionary and the caller keeps `self`.
+        let entry = unsafe { CFDictionaryGetValue(self.0, key.0) };
+        (!entry.is_null()).then_some(entry)
     }
 
     /// The items of an array, as borrowed pointers that stay valid while `self` is alive. Empty for a non-array.
