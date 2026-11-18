@@ -11,6 +11,9 @@
   import Memory from "./lib/components/views/Memory.svelte";
   import Disk from "./lib/components/views/Disk.svelte";
   import Network from "./lib/components/views/Network.svelte";
+  import Gpu from "./lib/components/views/Gpu.svelte";
+  import Sensors from "./lib/components/views/Sensors.svelte";
+  import Battery from "./lib/components/views/Battery.svelte";
   import EmptyState from "./lib/components/ui/EmptyState.svelte";
 
   onMount(() => {
@@ -44,6 +47,12 @@
       <Disk />
     {:else if nav.view === "network"}
       <Network />
+    {:else if nav.view === "gpu"}
+      <Gpu />
+    {:else if nav.view === "sensors"}
+      <Sensors />
+    {:else if nav.view === "battery"}
+      <Battery />
     {:else}
       <EmptyState icon="info" title={t(`nav.${nav.view}`)} />
     {/if}
