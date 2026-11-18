@@ -180,7 +180,7 @@ fn a_missing_history_says_so() {
     let dir = TempDir::new().unwrap();
     let err = Store::open_read_only(&dir.path().join("nope.sqlite")).err().expect("no history");
     assert!(matches!(err, StoreError::NoHistory(_)));
-    assert!(err.to_string().contains("no history yet"));
+    assert!(err.to_string().contains("no history yet") && err.to_string().contains("macmetry record"));
 }
 
 #[test]
