@@ -235,23 +235,38 @@ async fn a_watch_collects_and_a_read_returns_only_what_is_new() {
         .await,
     );
     let id = started["id"].as_str().unwrap().to_string();
-    tokio::time::sleep(std::time::Duration::from_millis(2600)).await;
 
-    let first = json_of(&call_owned(&client, "watch_read", json!({ "id": id })).await);
+    // Wait for the readings to arrive instead of sleeping: a slow machine takes longer to start measuring.
+    let first = poll_watch(&client, &id, None, |readings| readings.len() >= 2).await;
     let readings = first["readings"].as_array().unwrap();
-    assert!(readings.len() >= 2, "{} readings", readings.len());
     assert_eq!(first["metrics"], json!(["cpu.total", "battery.percent"]));
     assert!(readings[0]["values"][0].is_number());
     let since = first["next_since_ms"].as_u64().unwrap();
 
-    tokio::time::sleep(std::time::Duration::from_millis(1500)).await;
-    let next = json_of(&call_owned(&client, "watch_read", json!({ "id": id, "since_ms": since })).await);
+    let next = poll_watch(&client, &id, Some(since), |readings| !readings.is_empty()).await;
     assert!(next["readings"].as_array().unwrap().iter().all(|r| r["timestamp_ms"].as_u64().unwrap() > since));
 
     let stopped = call_owned(&client, "watch_stop", json!({ "id": id })).await;
     assert!(!is_error(&stopped));
     assert!(is_error(&call_owned(&client, "watch_read", json!({ "id": id })).await), "a stopped watch is gone");
     client.cancel().await.ok();
+}
+
+/// Reads a watch until `ready` accepts its readings, or fails after a generous deadline.
+async fn poll_watch(client: &Client, id: &str, since: Option<u64>, ready: impl Fn(&[Value]) -> bool) -> Value {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+    loop {
+        let args = match since {
+            Some(ms) => json!({ "id": id, "since_ms": ms }),
+            None => json!({ "id": id }),
+        };
+        let reading = json_of(&call_owned(client, "watch_read", args).await);
+        if ready(reading["readings"].as_array().map_or(&[][..], Vec::as_slice)) {
+            return reading;
+        }
+        assert!(std::time::Instant::now() < deadline, "timed out waiting for the watch to collect");
+        tokio::time::sleep(std::time::Duration::from_millis(100)).await;
+    }
 }
 
 /// Like `call`, for a tool name that is not a `'static` literal.
