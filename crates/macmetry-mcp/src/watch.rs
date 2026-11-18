@@ -157,6 +157,16 @@ impl WatchHub {
 mod tests {
     use super::*;
 
+    /// Polls until `ready` is true, or fails after a generous deadline. A slow machine (a CI runner) takes longer to
+    /// start the sampler, so waiting for the condition is right and sleeping for a fixed time is not.
+    fn wait_until(what: &str, mut ready: impl FnMut() -> bool) {
+        let deadline = Instant::now() + Duration::from_secs(30);
+        while !ready() {
+            assert!(Instant::now() < deadline, "timed out waiting for {what}");
+            std::thread::sleep(Duration::from_millis(50));
+        }
+    }
+
     #[test]
     fn collects_readings_and_reads_only_what_is_new() {
         let hub = WatchHub::new();
@@ -164,18 +174,16 @@ mod tests {
             hub.start(vec![Metric::CpuTotal, Metric::BatteryPercent], Duration::from_millis(100), 50).unwrap();
         assert_eq!(started.metrics, ["cpu.total", "battery.percent"]);
         assert_eq!(started.interval_secs, 0.1);
-        std::thread::sleep(Duration::from_millis(700));
+        wait_until("two readings", || hub.read(&started.id, None).unwrap().readings.len() >= 2);
 
         let first = hub.read(&started.id, None).unwrap();
-        assert!(first.readings.len() >= 2, "got {}", first.readings.len());
         assert!(first.running);
         assert!(first.readings[0].values[0].is_some(), "the CPU is always there");
         let since = first.next_since_ms.unwrap();
 
-        std::thread::sleep(Duration::from_millis(400));
-        let second = hub.read(&started.id, Some(since)).unwrap();
-        assert!(!second.readings.is_empty());
-        assert!(second.readings.iter().all(|r| r.timestamp_ms > since), "nothing is repeated");
+        wait_until("a newer reading", || !hub.read(&started.id, Some(since)).unwrap().readings.is_empty());
+        let next = hub.read(&started.id, Some(since)).unwrap();
+        assert!(next.readings.iter().all(|r| r.timestamp_ms > since), "nothing is repeated");
 
         hub.stop(&started.id).unwrap();
         assert!(hub.read(&started.id, None).is_err());
@@ -185,7 +193,12 @@ mod tests {
     fn keeps_only_the_newest_readings() {
         let hub = WatchHub::new();
         let id = hub.start(vec![Metric::CpuTotal], Duration::from_millis(50), 3).unwrap().id;
-        std::thread::sleep(Duration::from_millis(900));
+        // Once the ring is full it stays at its size, however many more readings arrive.
+        wait_until("a full ring", || hub.read(&id, None).unwrap().readings.len() == 3);
+        let newest = hub.read(&id, None).unwrap().readings.last().unwrap().timestamp_ms;
+        wait_until("older readings to be pushed out", || {
+            hub.read(&id, None).unwrap().readings.first().unwrap().timestamp_ms > newest.saturating_sub(1)
+        });
         assert_eq!(hub.read(&id, None).unwrap().readings.len(), 3, "a ring of 3");
         hub.shutdown();
     }
