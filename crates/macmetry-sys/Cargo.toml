@@ -12,6 +12,7 @@ rust-version.workspace = true
 macmetry-core.workspace = true
 libc.workspace = true
 parking_lot.workspace = true
+plist.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
