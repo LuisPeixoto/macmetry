@@ -63,6 +63,13 @@ impl Settings {
         if !matches!(self.theme.as_str(), "system" | "dark" | "light") {
             return Err(format!("`{}` is not a theme. Use system, dark or light.", self.theme));
         }
+        // With no Dock icon and no menu bar item there would be no way to reach the app at all.
+        if self.hide_dock_icon && !self.menu_bar_enabled {
+            return Err(
+                "The Dock icon can only be hidden while the menu bar item is shown, or macmetry could not be opened."
+                    .into(),
+            );
+        }
         self.interval_ms = self.interval_ms.clamp(MIN_INTERVAL_MS, MAX_INTERVAL_MS);
         if let Some(bad) = self.menu_bar_items.iter().find(|i| !MENU_ITEMS.contains(&i.as_str())) {
             return Err(format!("`{bad}` cannot be shown in the menu bar. Choose from: {}.", MENU_ITEMS.join(", ")));
@@ -133,6 +140,17 @@ mod tests {
                 .validated()
                 .unwrap_err()
                 .contains("cpu, memory")
+        );
+    }
+
+    #[test]
+    fn the_app_always_stays_reachable() {
+        let hidden = Settings { hide_dock_icon: true, menu_bar_enabled: false, ..Default::default() };
+        assert!(hidden.validated().unwrap_err().contains("menu bar"));
+        assert!(Settings { hide_dock_icon: true, menu_bar_enabled: true, ..Default::default() }.validated().is_ok());
+        assert!(
+            Settings { hide_dock_icon: false, menu_bar_enabled: false, ..Default::default() }.validated().is_ok(),
+            "the Dock icon is then the way in"
         );
     }
 
