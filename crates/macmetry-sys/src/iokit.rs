@@ -39,11 +39,6 @@ unsafe extern "C" {
     ) -> KernReturn;
 }
 
-#[link(name = "System")]
-unsafe extern "C" {
-    static mach_task_self_: MachPort;
-}
-
 /// A registry object, released when dropped.
 #[derive(Debug)]
 pub struct Service(IoObject);
@@ -90,8 +85,8 @@ impl Service {
     /// Opens a user client connection, for example to the SMC.
     pub fn open(&self, kind: u32) -> Result<Connection> {
         let mut connect: IoObject = 0;
-        // SAFETY: `mach_task_self_` is initialised by the system before `main`; `connect` is a valid out pointer.
-        let rc = unsafe { IOServiceOpen(self.0, mach_task_self_, kind, &mut connect) };
+        // SAFETY: `connect` is a valid out pointer and the task port is valid for the life of the process.
+        let rc = unsafe { IOServiceOpen(self.0, crate::mach::task_self(), kind, &mut connect) };
         if rc != KERN_SUCCESS {
             return Err(SysError::kern("IOServiceOpen", rc));
         }
