@@ -27,7 +27,8 @@ parking_lot = "0.12"
 plist = "1"
 rusqlite = { version = "0.37", features = ["bundled"] }
 serde = { version = "1", features = ["derive"] }
-serde_json = "1"
+# `float_roundtrip` makes numbers survive being written and read back exactly; the default parser can be off by one bit.
+serde_json = { version = "1", features = ["float_roundtrip"] }
 tempfile = "3"
 thiserror = "2"
 tokio = { version = "1", features = ["full"] }
