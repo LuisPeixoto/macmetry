@@ -2,8 +2,8 @@
 //! fixtures: `cargo run -p macmetry-sys --example probe`.
 
 use macmetry_sys::{
-    cpu::CpuCollector, disk::DiskCollector, memory::MemoryCollector, network::NetworkCollector, system,
-    thermal::ThermalCollector,
+    cpu::CpuCollector, disk::DiskCollector, memory::MemoryCollector, network::NetworkCollector,
+    process::ProcessCollector, system, thermal::ThermalCollector,
 };
 use serde_json::json;
 use std::time::{Duration, Instant};
@@ -13,6 +13,7 @@ fn main() {
     let mut memory = MemoryCollector::new().ok();
     let mut disk = DiskCollector::new();
     let mut network = NetworkCollector::new();
+    let mut processes = ProcessCollector::new();
     let thermal = ThermalCollector::new();
     let started = Instant::now();
     std::thread::sleep(Duration::from_secs(1));
@@ -25,6 +26,10 @@ fn main() {
         "disks": disk.sample(elapsed).ok(),
         "network": network.sample(elapsed).ok(),
         "thermal_pressure": thermal.and_then(|t| t.sample()),
+        "processes": processes.sample(elapsed).ok().map(|all| {
+            json!({ "readable": all.len(), "top_cpu": macmetry_core::top(&all, macmetry_core::ProcessSort::Cpu, 5, None),
+                    "top_memory": macmetry_core::top(&all, macmetry_core::ProcessSort::Memory, 5, None) })
+        }),
     });
     println!("{}", serde_json::to_string_pretty(&out).expect("the snapshot serializes"));
 }
