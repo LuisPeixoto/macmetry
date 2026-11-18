@@ -234,3 +234,23 @@ fn exports_what_it_stored() {
     assert_eq!(csv.lines().count(), 4, "a header and three rows");
     assert!(csv.lines().nth(1).unwrap().ends_with(",1700000040000,10"));
 }
+
+#[test]
+fn clearing_deletes_the_history_and_it_can_start_again() {
+    let dir = TempDir::new().unwrap();
+    let store = open(&dir);
+    for i in 0..120 {
+        store.record(&snapshot(T0 + i * 1000, 5.0)).unwrap();
+    }
+    store.maintain(T0 + 3 * MINUTE_MS).unwrap();
+    assert!(store.stats().unwrap().raw_rows > 0 && store.stats().unwrap().minute_rows > 0);
+
+    store.clear().unwrap();
+    let stats = store.stats().unwrap();
+    assert_eq!((stats.raw_rows, stats.minute_rows, stats.oldest_ms), (0, 0, None));
+    assert!(store.query(Metric::CpuTotal, T0, T0 + 200_000, 10).unwrap().points.is_empty());
+
+    // It records again, and aggregates from scratch rather than skipping what it had already done.
+    store.record(&snapshot(T0, 9.0)).unwrap();
+    assert_eq!(store.maintain(T0 + 2 * MINUTE_MS).unwrap().minutes_added, cpu_only_metrics());
+}
