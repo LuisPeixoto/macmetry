@@ -100,3 +100,25 @@ export function loadLevel(percent: number | null): "ok" | "busy" | "hot" {
   if (percent === null) return "ok";
   return percent >= 90 ? "hot" : percent >= 70 ? "busy" : "ok";
 }
+
+/**
+ * The band between a lowest and a highest value, one closed shape per unbroken run. Drawn faintly behind the line, it
+ * shows the spikes that averaging a long range would otherwise hide.
+ */
+export function bandPath(min: Value[], max: Value[], x: (i: number) => number, y: (v: number) => number): string {
+  const ok = (i: number) => typeof min[i] === "number" && typeof max[i] === "number" && Number.isFinite(min[i]) && Number.isFinite(max[i]);
+  let d = "";
+  let i = 0;
+  while (i < max.length) {
+    if (!ok(i)) { i++; continue; }
+    let end = i;
+    while (end + 1 < max.length && ok(end + 1)) end++;
+    const run = Array.from({ length: end - i + 1 }, (_, k) => i + k);
+    d += `M${x(i).toFixed(1)},${y(max[i] as number).toFixed(1)}`;
+    for (const k of run.slice(1)) d += `L${x(k).toFixed(1)},${y(max[k] as number).toFixed(1)}`;
+    for (const k of [...run].reverse()) d += `L${x(k).toFixed(1)},${y(min[k] as number).toFixed(1)}`;
+    d += "Z";
+    i = end + 1;
+  }
+  return d;
+}

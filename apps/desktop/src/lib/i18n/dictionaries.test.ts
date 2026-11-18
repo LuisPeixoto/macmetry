@@ -46,14 +46,10 @@ test("every key the code asks for exists", () => {
   assert.deepEqual(missing, [], "keys used in the code but missing from the dictionary");
 });
 
-// Turned on in the branch that adds the last views: until then the History, Alerts and Settings strings wait for them.
-test("every key in the dictionary is used somewhere", { skip: "the remaining views have not landed yet" }, () => {
+test("every key in the dictionary is used somewhere", () => {
   const all = files(src).filter((f) => !f.includes("/i18n/")).map((f) => readFileSync(f, "utf8")).join("\n");
-  // Keys built at run time (`t(\`nav.${id}\`)`) are matched by their prefix.
-  const unused = Object.keys(en).filter((k) => {
-    if (all.includes(`"${k}"`) || all.includes(`'${k}'`)) return false;
-    const prefix = k.slice(0, k.lastIndexOf(".") + 1);
-    return !all.includes("`" + prefix + "$");
-  });
+  // A key built at run time, like t(`metric.${key}`), covers every key that starts with its fixed part.
+  const prefixes = [...all.matchAll(/\bt\(\s*`([a-z0-9_.]+)\$\{/g)].map((m) => m[1]);
+  const unused = Object.keys(en).filter((k) => !all.includes(`"${k}"`) && !all.includes(`'${k}'`) && !prefixes.some((p) => k.startsWith(p)));
   assert.deepEqual(unused, [], "dictionary keys nothing uses");
 });

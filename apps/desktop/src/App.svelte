@@ -15,6 +15,9 @@
   import Sensors from "./lib/components/views/Sensors.svelte";
   import Battery from "./lib/components/views/Battery.svelte";
   import Processes from "./lib/components/views/Processes.svelte";
+  import History from "./lib/components/views/History.svelte";
+  import Alerts from "./lib/components/views/Alerts.svelte";
+  import Settings from "./lib/components/views/Settings.svelte";
   import EmptyState from "./lib/components/ui/EmptyState.svelte";
 
   onMount(() => {
@@ -56,6 +59,12 @@
       <Battery />
     {:else if nav.view === "processes"}
       <Processes />
+    {:else if nav.view === "history"}
+      <History />
+    {:else if nav.view === "alerts"}
+      <Alerts />
+    {:else if nav.view === "settings"}
+      <Settings />
     {:else}
       <EmptyState icon="info" title={t(`nav.${nav.view}`)} />
     {/if}
