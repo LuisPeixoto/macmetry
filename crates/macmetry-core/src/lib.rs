@@ -4,10 +4,12 @@
 
 pub mod metric;
 pub mod model;
+pub mod processes;
 pub mod rates;
 pub mod ring;
 pub mod units;
 
 pub use metric::{Metric, Unit};
 pub use model::*;
+pub use processes::{ProcessSort, sort_processes, top};
 pub use ring::Ring;
