@@ -20,7 +20,7 @@
 
 <style>
   .bar { display: flex; gap: 2px; height: 14px; }
-  .bar span { border-radius: 4px; min-width: 3px; transition: flex 0.4s; }
+  .bar span { border-radius: 4px; min-width: 3px; }
   .bar .rest { background: var(--grid); }
   .legend { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px 18px; }
   li { display: flex; align-items: center; gap: 8px; }
