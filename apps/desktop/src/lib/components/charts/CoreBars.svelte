@@ -20,6 +20,6 @@
   .bars { display: flex; gap: 6px; align-items: stretch; }
   .col { flex: 1; min-width: 14px; max-width: 72px; display: flex; flex-direction: column; gap: 4px; }
   .track { flex: 1; background: var(--grid); border-radius: 5px; display: flex; align-items: flex-end; overflow: hidden; }
-  i { width: 100%; border-radius: 5px; transition: height 0.4s; }
+  i { width: 100%; border-radius: 5px; }
   span { font-size: 10px; color: var(--text-3); text-align: center; }
 </style>
