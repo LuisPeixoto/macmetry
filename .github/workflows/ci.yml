@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rust:
+    name: Rust (${{ matrix.name }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: Apple silicon, os: macos-latest }
+          - { name: Intel, os: macos-15-intel }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+      - name: Format
+        run: cargo fmt --all --check
+      - name: Clippy
+        run: cargo clippy --workspace --exclude macmetry-desktop --all-targets -- -D warnings
+      - name: Test
+        run: cargo test --workspace --exclude macmetry-desktop
+
+  desktop:
+    name: Desktop app (${{ matrix.name }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: Apple silicon, os: macos-latest }
+          - { name: Intel, os: macos-15-intel }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/desktop/package-lock.json
+      - name: Install frontend dependencies
+        working-directory: apps/desktop
+        run: npm ci
+      - name: Check that the Tauri crates and npm packages match
+        working-directory: apps/desktop
+        run: node scripts/check-tauri-versions.mjs
+      - name: Type-check the interface
+        working-directory: apps/desktop
+        run: npm run check
+      - name: Test the interface logic
+        working-directory: apps/desktop
+        run: npm test
+      - name: Build the interface
+        working-directory: apps/desktop
+        run: npm run build
+      - name: Clippy (desktop shell)
+        run: cargo clippy -p macmetry-desktop --all-targets -- -D warnings
