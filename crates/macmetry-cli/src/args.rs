@@ -137,6 +137,9 @@ pub enum Command {
     },
     /// List the metric keys that history and export understand.
     Metrics,
+    /// Start the MCP server on standard input and output, so an AI assistant can read how this Mac is doing.
+    /// Every tool only reads.
+    Mcp,
 }
 
 fn parse_interval(text: &str) -> Result<f64, String> {
@@ -191,6 +194,7 @@ mod tests {
         );
         assert!(parse(&["record", "--interval", "5"]).is_ok());
         assert!(parse(&["metrics"]).is_ok());
+        assert!(parse(&["mcp"]).is_ok());
     }
 
     #[test]
