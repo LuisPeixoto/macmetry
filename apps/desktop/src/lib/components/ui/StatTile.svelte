@@ -13,7 +13,7 @@
 
 <style>
   .tile { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-  .hint { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hint { font-size: 12px; overflow-wrap: anywhere; line-height: 1.35; }
   .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
   .good { background: var(--good); } .warn { background: var(--warn); } .bad { background: var(--bad); }
 </style>

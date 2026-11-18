@@ -4,13 +4,17 @@
   import type { Snippet } from "svelte";
   import { loadLevel } from "../../chart.ts";
 
-  let { value, size = 132, stroke = 12, children, warnAt = true }: { value: number | null; size?: number; stroke?: number; children?: Snippet; warnAt?: boolean } = $props();
+  let { value, size = 132, stroke = 12, children, warnAt = true, level: forced }: {
+    value: number | null; size?: number; stroke?: number; children?: Snippet; warnAt?: boolean;
+    /** Sets the colour directly, for a reading where low is the bad end (a battery). */
+    level?: "ok" | "busy" | "hot";
+  } = $props();
   const id = `g${Math.random().toString(36).slice(2, 8)}`;
   const r = $derived((size - stroke) / 2);
   const c = $derived(2 * Math.PI * r);
   const arc = $derived(0.75 * c);
   const filled = $derived(((value === null ? 0 : Math.min(100, Math.max(0, value))) / 100) * arc);
-  const level = $derived(warnAt ? loadLevel(value) : "ok");
+  const level = $derived(forced ?? (warnAt ? loadLevel(value) : "ok"));
 </script>
 
 <div class="gauge" style="width:{size}px;height:{size}px">
