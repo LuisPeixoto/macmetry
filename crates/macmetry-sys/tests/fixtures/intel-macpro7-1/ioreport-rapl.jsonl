@@ -1,0 +1,5 @@
+{"group": "pmtelemetry_cpu", "subgroup": "msr", "name": "MSR_IA32_PP0_ENERGY_STATUS", "unit": "", "value": 2019526410}
+{"group": "pmtelemetry_cpu", "subgroup": "msr", "name": "MSR_IA32_PP1_ENERGY_STATUS", "unit": "", "value": 0}
+{"group": "pmtelemetry_cpu", "subgroup": "msr", "name": "MSR_IA32_DDR_ENERGY_STATUS", "unit": "", "value": 0}
+{"group": "pmtelemetry_cpu", "subgroup": "msr", "name": "MSR_IA32_PKG_POWER_SKU_UNIT", "unit": "", "value": 658947}
+{"group": "pmtelemetry_cpu", "subgroup": "msr", "name": "MSR_IA32_PKG_ENERGY_STATUS", "unit": "", "value": 2917888405}
