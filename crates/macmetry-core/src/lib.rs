@@ -2,6 +2,7 @@
 //! back from a snapshot, and how the numbers are formatted. Nothing here talks to the operating system, so it builds
 //! and tests on any host.
 
+pub mod alerts;
 pub mod metric;
 pub mod model;
 pub mod processes;
