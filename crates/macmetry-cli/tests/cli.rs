@@ -163,3 +163,70 @@ fn export_refuses_a_folder_as_the_destination() {
     let out = macmetry(&home, &["export", "--metric", "cpu.total", "-o", home.path().to_str().unwrap()]);
     assert!(!out.status.success());
 }
+
+/// One JSON-RPC message per line, as MCP does over standard input and output.
+fn send(stdin: &mut impl std::io::Write, message: serde_json::Value) {
+    writeln!(stdin, "{message}").unwrap();
+    stdin.flush().unwrap();
+}
+
+fn receive(lines: &mut impl Iterator<Item = std::io::Result<String>>) -> serde_json::Value {
+    serde_json::from_str(&lines.next().expect("the server answers").unwrap()).expect("a JSON message")
+}
+
+#[test]
+fn serves_mcp_on_stdio_and_exits_when_the_client_leaves() {
+    use std::io::{BufRead, BufReader};
+    let home = TempDir::new().unwrap();
+    let mut server = Command::new(env!("CARGO_BIN_EXE_macmetry"))
+        .arg("mcp")
+        .env("MACMETRY_HOME", home.path())
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::null())
+        .spawn()
+        .unwrap();
+    let mut stdin = server.stdin.take().unwrap();
+    let mut lines = BufReader::new(server.stdout.take().unwrap()).lines();
+
+    send(
+        &mut stdin,
+        serde_json::json!({
+            "jsonrpc": "2.0", "id": 1, "method": "initialize",
+            "params": { "protocolVersion": "2025-03-26", "capabilities": {}, "clientInfo": { "name": "test", "version": "0" } }
+        }),
+    );
+    let init = receive(&mut lines);
+    assert_eq!(init["id"], 1);
+    assert!(init["result"]["instructions"].as_str().unwrap().contains("only read"), "{init}");
+    send(&mut stdin, serde_json::json!({ "jsonrpc": "2.0", "method": "notifications/initialized" }));
+
+    send(&mut stdin, serde_json::json!({ "jsonrpc": "2.0", "id": 2, "method": "tools/list" }));
+    let tools = receive(&mut lines);
+    let names: Vec<&str> =
+        tools["result"]["tools"].as_array().unwrap().iter().map(|t| t["name"].as_str().unwrap()).collect();
+    assert!(names.contains(&"snapshot") && names.contains(&"history_query"), "{names:?}");
+
+    send(
+        &mut stdin,
+        serde_json::json!({
+            "jsonrpc": "2.0", "id": 3, "method": "tools/call",
+            "params": { "name": "snapshot", "arguments": { "wait_ms": 300, "sections": ["cpu"] } }
+        }),
+    );
+    let call = receive(&mut lines);
+    assert_eq!(call["id"], 3);
+    assert!(call["result"]["content"][0]["text"].as_str().unwrap().contains("total_pct"), "{call}");
+
+    // The client leaving (closing standard input) must end the server, and cleanly.
+    drop(stdin);
+    let started = std::time::Instant::now();
+    let status = loop {
+        if let Some(status) = server.try_wait().unwrap() {
+            break status;
+        }
+        assert!(started.elapsed() < Duration::from_secs(10), "the server did not exit after its client left");
+        std::thread::sleep(Duration::from_millis(50));
+    };
+    assert!(status.success(), "exit status {status}");
+}
