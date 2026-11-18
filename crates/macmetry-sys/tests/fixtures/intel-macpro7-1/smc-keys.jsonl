@@ -1,0 +1,121 @@
+{"key":"#KEY","size":4,"type":"ui32","value":128.0}
+{"key":"$Adr","size":4,"type":"ui32","value":768.0}
+{"key":"$Num","size":1,"type":"ui8 ","value":1.0}
+{"key":"BATP","size":1,"type":"flag","value":null}
+{"key":"BEMB","size":1,"type":"flag","value":null}
+{"key":"CLKH","size":8,"type":"{clh","value":null}
+{"key":"CLKT","size":4,"type":"ui32","value":1757.0}
+{"key":"CLWK","size":2,"type":"ui16","value":65535.0}
+{"key":"CRCA","size":4,"type":"ui32","value":4257065897.0}
+{"key":"CRCB","size":4,"type":"ui32","value":2647755773.0}
+{"key":"CRCC","size":4,"type":"ui32","value":2207944606.0}
+{"key":"CRCF","size":4,"type":"ui32","value":2753013394.0}
+{"key":"CRCK","size":4,"type":"ui32","value":0.0}
+{"key":"CRCR","size":4,"type":"ui32","value":622031175.0}
+{"key":"CRCU","size":4,"type":"ui32","value":2442526695.0}
+{"key":"CRCa","size":4,"type":"ui32","value":4257065897.0}
+{"key":"CRCb","size":4,"type":"ui32","value":2647755773.0}
+{"key":"CRCc","size":4,"type":"ui32","value":2207944606.0}
+{"key":"CRCr","size":4,"type":"ui32","value":622031175.0}
+{"key":"CRCu","size":4,"type":"ui32","value":2442526695.0}
+{"key":"EFBM","size":1,"type":"ui8 ","value":0.0}
+{"key":"EFBP","size":1,"type":"ui8 ","value":0.0}
+{"key":"EPCI","size":4,"type":"ui32","value":135327744.0}
+{"key":"EVCT","size":2,"type":"hex_","value":null}
+{"key":"EVHF","size":28,"type":"ch8*","value":null}
+{"key":"EVRD","size":32,"type":"ch8*","value":null}
+{"key":"FAC0","size":1,"type":"ui8 ","value":0.0}
+{"key":"FNum","size":1,"type":"ui8 ","value":5.0}
+{"key":"HBKP","size":32,"type":"ch8*","value":null}
+{"key":"LDKN","size":1,"type":"ui8 ","value":2.0}
+{"key":"LsNM","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSFW","size":1,"type":"flag","value":null}
+{"key":"MSPC","size":1,"type":"ui8 ","value":25.0}
+{"key":"MSPP","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSPR","size":2,"type":"ui8 ","value":0.0}
+{"key":"MSPS","size":2,"type":"hex_","value":null}
+{"key":"MSQC","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSSD","size":1,"type":"si8 ","value":5.0}
+{"key":"MSSP","size":1,"type":"si8 ","value":5.0}
+{"key":"MSSW","size":1,"type":"flag","value":null}
+{"key":"MSTc","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSTe","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSTf","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSTi","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSTj","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSTm","size":1,"type":"ui8 ","value":0.0}
+{"key":"MSWr","size":1,"type":"ui8 ","value":0.0}
+{"key":"NATJ","size":1,"type":"ui8 ","value":0.0}
+{"key":"NATi","size":2,"type":"ui16","value":0.0}
+{"key":"OSWD","size":2,"type":"ui16","value":25.0}
+{"key":"RGEN","size":1,"type":"ui8 ","value":2.0}
+{"key":"RMAC","size":6,"type":"ch8*","value":null}
+{"key":"RMSN","size":17,"type":"ch8*","value":null}
+{"key":"RMde","size":1,"type":"char","value":null}
+{"key":"RPlt","size":8,"type":"ch8*","value":null}
+{"key":"RSSN","size":16,"type":"ch8*","value":null}
+{"key":"RVCR","size":6,"type":"{rev","value":null}
+{"key":"WKTP","size":1,"type":"ui8 ","value":0.0}
+{"key":"PC0C","size":2,"type":"sp96","value":0.0}
+{"key":"PC0G","size":2,"type":"sp96","value":0.0}
+{"key":"PC0R","size":2,"type":"sp96","value":0.0}
+{"key":"PC3C","size":4,"type":"flt ","value":0.0}
+{"key":"PCAM","size":4,"type":"flt ","value":0.0}
+{"key":"PCEC","size":4,"type":"flt ","value":0.0}
+{"key":"PCGC","size":4,"type":"flt ","value":0.0}
+{"key":"PCGM","size":4,"type":"flt ","value":0.0}
+{"key":"PCPC","size":2,"type":"sp96","value":0.0}
+{"key":"PCPG","size":2,"type":"sp96","value":0.0}
+{"key":"PCPR","size":2,"type":"sp96","value":0.0}
+{"key":"PCPT","size":2,"type":"sp96","value":0.0}
+{"key":"PCTR","size":2,"type":"sp96","value":0.0}
+{"key":"TC0C","size":2,"type":"sp78","value":46.0}
+{"key":"TC0D","size":2,"type":"sp78","value":48.0}
+{"key":"TC0E","size":2,"type":"sp78","value":48.0}
+{"key":"TC0F","size":2,"type":"sp78","value":48.0}
+{"key":"TC0G","size":2,"type":"sp78","value":0.0}
+{"key":"TC0H","size":2,"type":"sp78","value":48.0}
+{"key":"TC0J","size":2,"type":"sp78","value":0.0}
+{"key":"TC0P","size":2,"type":"sp78","value":48.0}
+{"key":"TC0c","size":2,"type":"sp78","value":46.0}
+{"key":"TC0p","size":2,"type":"sp78","value":48.0}
+{"key":"TC1C","size":2,"type":"sp78","value":46.0}
+{"key":"TC1c","size":2,"type":"sp78","value":46.0}
+{"key":"TC2C","size":2,"type":"sp78","value":45.0}
+{"key":"TC2c","size":2,"type":"sp78","value":45.0}
+{"key":"TC3C","size":2,"type":"sp78","value":46.0}
+{"key":"TC3c","size":2,"type":"sp78","value":46.0}
+{"key":"TC4C","size":2,"type":"sp78","value":49.0}
+{"key":"TC4c","size":2,"type":"sp78","value":49.0}
+{"key":"TC5C","size":2,"type":"sp78","value":46.0}
+{"key":"TC5c","size":2,"type":"sp78","value":46.0}
+{"key":"TC6C","size":2,"type":"sp78","value":48.0}
+{"key":"TC6c","size":2,"type":"sp78","value":48.0}
+{"key":"TC7C","size":2,"type":"sp78","value":48.0}
+{"key":"TC7c","size":2,"type":"sp78","value":48.0}
+{"key":"VC0C","size":2,"type":"sp3c","value":1.12939453125}
+{"key":"F0Ac","size":2,"type":"fpe2","value":2258.0}
+{"key":"F0Md","size":1,"type":"ui8 ","value":0.0}
+{"key":"F0Mn","size":2,"type":"fpe2","value":0.0}
+{"key":"F0Mx","size":2,"type":"fpe2","value":3315.0}
+{"key":"F0Tg","size":2,"type":"fpe2","value":0.0}
+{"key":"F1Ac","size":2,"type":"fpe2","value":0.0}
+{"key":"F1Md","size":1,"type":"ui8 ","value":0.0}
+{"key":"F1Mn","size":2,"type":"fpe2","value":0.0}
+{"key":"F1Mx","size":2,"type":"fpe2","value":3315.0}
+{"key":"F1Tg","size":2,"type":"fpe2","value":0.0}
+{"key":"F2Ac","size":2,"type":"fpe2","value":0.0}
+{"key":"F2Md","size":1,"type":"ui8 ","value":0.0}
+{"key":"F2Mn","size":2,"type":"fpe2","value":0.0}
+{"key":"F2Mx","size":2,"type":"fpe2","value":3315.0}
+{"key":"F2Tg","size":2,"type":"fpe2","value":0.0}
+{"key":"F3Ac","size":2,"type":"fpe2","value":0.0}
+{"key":"F3Md","size":1,"type":"ui8 ","value":0.0}
+{"key":"F3Mn","size":2,"type":"fpe2","value":0.0}
+{"key":"F3Mx","size":2,"type":"fpe2","value":3315.0}
+{"key":"F3Tg","size":2,"type":"fpe2","value":0.0}
+{"key":"F4Ac","size":2,"type":"fpe2","value":1642.0}
+{"key":"F4Md","size":1,"type":"ui8 ","value":0.0}
+{"key":"F4Mn","size":2,"type":"fpe2","value":0.0}
+{"key":"F4Mx","size":2,"type":"fpe2","value":3315.0}
+{"key":"F4Tg","size":2,"type":"fpe2","value":0.0}
