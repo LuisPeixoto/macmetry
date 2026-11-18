@@ -1,13 +1,13 @@
 <script lang="ts">
   // The main time chart: thin lines, recessive grid, a crosshair with a tooltip, a legend when there are two or more
   // series, and a table view for anyone who prefers numbers. Missing values break the line; they are never drawn as 0.
-  import { areaPath, byteTicks, extent, lastValue, linePath, nearestIndex, niceTicks, yRange, type Value } from "../../chart.ts";
+  import { areaPath, bandPath, byteTicks, extent, lastValue, linePath, nearestIndex, niceTicks, yRange, type Value } from "../../chart.ts";
   import { fmt } from "../../stores/fmt.svelte.ts";
   import { t } from "../../stores/i18n.svelte.ts";
   import type { Unit } from "../../types.ts";
   import Icon from "../ui/Icon.svelte";
 
-  export interface ChartSeries { key: string; label: string; color: string; values: Value[] }
+  export interface ChartSeries { key: string; label: string; color: string; values: Value[]; /** The lowest and highest value of each point, drawn as a faint band behind the line. */ band?: { min: Value[]; max: Value[] } }
   let {
     times, series, unit, height = 220, yMax, fill = true, legend = true, table = true, resolutionMs = 1000, label = "",
   }: {
@@ -27,7 +27,7 @@
   const innerH = $derived(height - M.t - M.b);
 
   const scale = $derived.by(() => {
-    const e = extent(series.map((s) => s.values));
+    const e = extent(series.flatMap((s) => (s.band ? [s.values, s.band.max] : [s.values])));
     const [lo, hi] = yRange(e, unit === "percent" ? "percent" : "other", { max: yMax });
     const ticks = unit === "percent" ? [0, 25, 50, 75, 100] : unit === "bytes" ? byteTicks(hi, 1024) : unit === "bytes_per_second" ? byteTicks(hi, 1000) : niceTicks(lo, hi, 4);
     const top = Math.max(hi, ticks.at(-1) ?? hi);
@@ -36,7 +36,7 @@
   const x = $derived((i: number) => M.l + (n <= 1 ? 0 : (i / (n - 1)) * innerW));
   const y = $derived((v: number) => M.t + innerH - ((Math.min(Math.max(v, scale.lo), scale.hi) - scale.lo) / (scale.hi - scale.lo || 1)) * innerH);
 
-  const paths = $derived(series.map((s) => ({ s, line: linePath(s.values, x, y), area: fill ? areaPath(s.values, x, y, M.t + innerH) : "" })));
+  const paths = $derived(series.map((s) => ({ s, line: linePath(s.values, x, y), area: fill ? areaPath(s.values, x, y, M.t + innerH) : "", band: s.band ? bandPath(s.band.min, s.band.max, x, y) : "" })));
   const showSeconds = $derived(resolutionMs < 60_000);
   const longRange = $derived(n > 1 && times[n - 1] - times[0] > 20 * 3600_000);
   const xTicks = $derived.by(() => {
@@ -102,7 +102,8 @@
         <text x={x(i)} y={height - 6} text-anchor={i === 0 ? "start" : i === n - 1 ? "end" : "middle"} class="axis">{stamp(times[i])}</text>
       {/each}
       {#each paths as p, k (p.s.key)}
-        {#if k === 0 && fill}<path d={p.area} fill="url(#{gid}-{p.s.key})" />{/if}
+        {#if p.band}<path d={p.band} fill={p.s.color} opacity="0.16" />{/if}
+        {#if k === 0 && fill && !p.band}<path d={p.area} fill="url(#{gid}-{p.s.key})" />{/if}
         <path d={p.line} fill="none" stroke={p.s.color} stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
       {/each}
       {#if tip}
