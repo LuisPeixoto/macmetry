@@ -31,6 +31,16 @@ export function niceTicks(min: number, max: number, count = 4): number[] {
 }
 
 /**
+ * Axis ticks for a size or a speed. They are chosen in the unit the label will use (megabytes, say), so the axis reads
+ * 0, 50 MB, 100 MB instead of 0, 47.7 MB, 95.4 MB. `base` is 1024 for memory and 1000 for disks and networks.
+ */
+export function byteTicks(max: number, base: 1000 | 1024, count = 4): number[] {
+  if (!Number.isFinite(max) || max <= 0) return [0, 1];
+  const scale = base ** Math.min(5, Math.max(0, Math.floor(Math.log(max) / Math.log(base))));
+  return niceTicks(0, max / scale, count).map((v) => v * scale);
+}
+
+/**
  * The y range of a chart. A percentage chart always shows 0 to 100 so a quiet Mac does not look busy; anything else
  * starts at 0 and grows to a round number just above the data, so the chart never touches its own top.
  */
