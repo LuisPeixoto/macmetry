@@ -21,7 +21,11 @@ pub mod disk;
 #[cfg(target_os = "macos")]
 pub mod gpu;
 #[cfg(target_os = "macos")]
+pub mod hid;
+#[cfg(target_os = "macos")]
 pub mod iokit;
+#[cfg(target_os = "macos")]
+pub mod ioreport;
 #[cfg(target_os = "macos")]
 pub mod mach;
 #[cfg(target_os = "macos")]
