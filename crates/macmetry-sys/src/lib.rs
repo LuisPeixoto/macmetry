@@ -15,11 +15,15 @@ pub mod cf;
 #[cfg(target_os = "macos")]
 pub mod cpu;
 #[cfg(target_os = "macos")]
+pub mod disk;
+#[cfg(target_os = "macos")]
 pub mod iokit;
 #[cfg(target_os = "macos")]
 pub mod mach;
 #[cfg(target_os = "macos")]
 pub mod memory;
+#[cfg(target_os = "macos")]
+pub mod network;
 #[cfg(target_os = "macos")]
 pub mod sysctl;
 #[cfg(target_os = "macos")]

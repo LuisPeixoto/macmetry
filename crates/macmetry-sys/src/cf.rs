@@ -99,6 +99,18 @@ impl Owned {
         Some(unsafe { to_value(entry, 0) })
     }
 
+    /// The items of an array, as borrowed pointers that stay valid while `self` is alive. Empty for a non-array.
+    pub fn array_items(&self) -> Vec<CFTypeRef> {
+        // SAFETY: `self.0` is a valid object, and the array calls only run after the type check.
+        unsafe {
+            if CFGetTypeID(self.0) != CFArrayGetTypeID() {
+                return Vec::new();
+            }
+            let count = usize::try_from(CFArrayGetCount(self.0)).unwrap_or(0).min(MAX_ITEMS);
+            (0..count).map(|i| CFArrayGetValueAtIndex(self.0, i as CFIndex)).collect()
+        }
+    }
+
     /// Converts the whole tree.
     pub fn to_value(&self) -> Value {
         // SAFETY: `self.0` is a valid owned object.
@@ -166,6 +178,15 @@ unsafe fn to_value(cf: CFTypeRef, depth: usize) -> Value {
             Value::Null
         }
     }
+}
+
+/// Reads a CFString that someone else owns, for example one returned by a `Get` function.
+///
+/// # Safety
+/// `s` must be null or a valid CFString for the duration of the call.
+pub unsafe fn string_from(s: CFTypeRef) -> Option<String> {
+    // SAFETY: the caller guarantees `s` is null or a valid CFString, and the type is checked before it is read.
+    unsafe { if s.is_null() || CFGetTypeID(s) != CFStringGetTypeID() { None } else { string_value(s) } }
 }
 
 /// # Safety

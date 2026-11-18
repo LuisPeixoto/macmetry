@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>IOClass</key>
+		<string>IOBlockStorageDriver</string>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>BSD Name</key>
+				<string>disk0</string>
+				<key>Whole</key>
+				<true/>
+			</dict>
+		</array>
+		<key>Statistics</key>
+		<dict>
+			<key>Bytes (Read)</key>
+			<integer>23900817408</integer>
+			<key>Bytes (Write)</key>
+			<integer>6103355392</integer>
+			<key>Errors (Read)</key>
+			<integer>0</integer>
+			<key>Errors (Write)</key>
+			<integer>0</integer>
+			<key>Latency Time (Read)</key>
+			<integer>0</integer>
+			<key>Latency Time (Write)</key>
+			<integer>0</integer>
+			<key>Operations (Read)</key>
+			<integer>1370047</integer>
+			<key>Operations (Write)</key>
+			<integer>467915</integer>
+			<key>Retries (Read)</key>
+			<integer>0</integer>
+			<key>Retries (Write)</key>
+			<integer>0</integer>
+			<key>Total Time (Read)</key>
+			<integer>160237842983</integer>
+			<key>Total Time (Write)</key>
+			<integer>10964899516</integer>
+		</dict>
+	</dict>
+	<dict>
+		<key>IOClass</key>
+		<string>IOBlockStorageDriver</string>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>BSD Name</key>
+				<string>disk3</string>
+				<key>Whole</key>
+				<true/>
+			</dict>
+		</array>
+		<key>Statistics</key>
+		<dict>
+			<key>Bytes (Read)</key>
+			<integer>12767488000</integer>
+			<key>Bytes (Write)</key>
+			<integer>1650282496</integer>
+			<key>Errors (Read)</key>
+			<integer>0</integer>
+			<key>Errors (Write)</key>
+			<integer>0</integer>
+			<key>Latency Time (Read)</key>
+			<integer>0</integer>
+			<key>Latency Time (Write)</key>
+			<integer>0</integer>
+			<key>Operations (Read)</key>
+			<integer>1064577</integer>
+			<key>Operations (Write)</key>
+			<integer>29306</integer>
+			<key>Retries (Read)</key>
+			<integer>0</integer>
+			<key>Retries (Write)</key>
+			<integer>0</integer>
+			<key>Total Time (Read)</key>
+			<integer>7557368733017</integer>
+			<key>Total Time (Write)</key>
+			<integer>858399480699</integer>
+		</dict>
+	</dict>
+	<dict>
+		<key>IOClass</key>
+		<string>IOBlockStorageDriver</string>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>BSD Name</key>
+				<string>disk4</string>
+				<key>Whole</key>
+				<true/>
+			</dict>
+		</array>
+		<key>Statistics</key>
+		<dict>
+			<key>Bytes (Read)</key>
+			<integer>23273472</integer>
+			<key>Bytes (Write)</key>
+			<integer>1102848</integer>
+			<key>Errors (Read)</key>
+			<integer>0</integer>
+			<key>Errors (Write)</key>
+			<integer>0</integer>
+			<key>Latency Time (Read)</key>
+			<integer>0</integer>
+			<key>Latency Time (Write)</key>
+			<integer>0</integer>
+			<key>Operations (Read)</key>
+			<integer>2501</integer>
+			<key>Operations (Write)</key>
+			<integer>164</integer>
+			<key>Retries (Read)</key>
+			<integer>0</integer>
+			<key>Retries (Write)</key>
+			<integer>0</integer>
+			<key>Total Time (Read)</key>
+			<integer>4179250578</integer>
+			<key>Total Time (Write)</key>
+			<integer>915588486</integer>
+		</dict>
+	</dict>
+	<dict>
+		<key>IOClass</key>
+		<string>IOBlockStorageDriver</string>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>BSD Name</key>
+				<string>disk6</string>
+				<key>Whole</key>
+				<true/>
+			</dict>
+		</array>
+		<key>Statistics</key>
+		<dict>
+			<key>Bytes (Read)</key>
+			<integer>30970880</integer>
+			<key>Bytes (Write)</key>
+			<integer>0</integer>
+			<key>Errors (Read)</key>
+			<integer>0</integer>
+			<key>Errors (Write)</key>
+			<integer>0</integer>
+			<key>Latency Time (Read)</key>
+			<integer>0</integer>
+			<key>Latency Time (Write)</key>
+			<integer>0</integer>
+			<key>Operations (Read)</key>
+			<integer>1970</integer>
+			<key>Operations (Write)</key>
+			<integer>0</integer>
+			<key>Retries (Read)</key>
+			<integer>0</integer>
+			<key>Retries (Write)</key>
+			<integer>0</integer>
+			<key>Total Time (Read)</key>
+			<integer>1255442826</integer>
+			<key>Total Time (Write)</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<dict>
+		<key>IOClass</key>
+		<string>IOBlockStorageDriver</string>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>BSD Name</key>
+				<string>disk1</string>
+				<key>Whole</key>
+				<true/>
+			</dict>
+		</array>
+		<key>Statistics</key>
+		<dict>
+			<key>Bytes (Read)</key>
+			<integer>8272896</integer>
+			<key>Bytes (Write)</key>
+			<integer>0</integer>
+			<key>Errors (Read)</key>
+			<integer>0</integer>
+			<key>Errors (Write)</key>
+			<integer>0</integer>
+			<key>Latency Time (Read)</key>
+			<integer>0</integer>
+			<key>Latency Time (Write)</key>
+			<integer>0</integer>
+			<key>Operations (Read)</key>
+			<integer>572</integer>
+			<key>Operations (Write)</key>
+			<integer>0</integer>
+			<key>Retries (Read)</key>
+			<integer>0</integer>
+			<key>Retries (Write)</key>
+			<integer>0</integer>
+			<key>Total Time (Read)</key>
+			<integer>36010574</integer>
+			<key>Total Time (Write)</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<dict>
+		<key>IOClass</key>
+		<string>IOBlockStorageDriver</string>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>BSD Name</key>
+				<string>disk11</string>
+				<key>Whole</key>
+				<true/>
+			</dict>
+		</array>
+		<key>Statistics</key>
+		<dict>
+			<key>Bytes (Read)</key>
+			<integer>800709632</integer>
+			<key>Bytes (Write)</key>
+			<integer>0</integer>
+			<key>Errors (Read)</key>
+			<integer>0</integer>
+			<key>Errors (Write)</key>
+			<integer>0</integer>
+			<key>Latency Time (Read)</key>
+			<integer>0</integer>
+			<key>Latency Time (Write)</key>
+			<integer>0</integer>
+			<key>Operations (Read)</key>
+			<integer>146582</integer>
+			<key>Operations (Write)</key>
+			<integer>0</integer>
+			<key>Retries (Read)</key>
+			<integer>0</integer>
+			<key>Retries (Write)</key>
+			<integer>0</integer>
+			<key>Total Time (Read)</key>
+			<integer>215477297810</integer>
+			<key>Total Time (Write)</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<dict>
+		<key>IOClass</key>
+		<string>IOBlockStorageDriver</string>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>BSD Name</key>
+				<string>disk7</string>
+				<key>Whole</key>
+				<true/>
+			</dict>
+		</array>
+		<key>Statistics</key>
+		<dict>
+			<key>Bytes (Read)</key>
+			<integer>303616</integer>
+			<key>Bytes (Write)</key>
+			<integer>0</integer>
+			<key>Errors (Read)</key>
+			<integer>0</integer>
+			<key>Errors (Write)</key>
+			<integer>0</integer>
+			<key>Latency Time (Read)</key>
+			<integer>0</integer>
+			<key>Latency Time (Write)</key>
+			<integer>0</integer>
+			<key>Operations (Read)</key>
+			<integer>80</integer>
+			<key>Operations (Write)</key>
+			<integer>0</integer>
+			<key>Retries (Read)</key>
+			<integer>0</integer>
+			<key>Retries (Write)</key>
+			<integer>0</integer>
+			<key>Total Time (Read)</key>
+			<integer>8343033</integer>
+			<key>Total Time (Write)</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<dict>
+		<key>IOClass</key>
+		<string>IOBlockStorageDriver</string>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>BSD Name</key>
+				<string>disk9</string>
+				<key>Whole</key>
+				<true/>
+			</dict>
+		</array>
+		<key>Statistics</key>
+		<dict>
+			<key>Bytes (Read)</key>
+			<integer>729600</integer>
+			<key>Bytes (Write)</key>
+			<integer>0</integer>
+			<key>Errors (Read)</key>
+			<integer>0</integer>
+			<key>Errors (Write)</key>
+			<integer>0</integer>
+			<key>Latency Time (Read)</key>
+			<integer>0</integer>
+			<key>Latency Time (Write)</key>
+			<integer>0</integer>
+			<key>Operations (Read)</key>
+			<integer>119</integer>
+			<key>Operations (Write)</key>
+			<integer>0</integer>
+			<key>Retries (Read)</key>
+			<integer>0</integer>
+			<key>Retries (Write)</key>
+			<integer>0</integer>
+			<key>Total Time (Read)</key>
+			<integer>21575774</integer>
+			<key>Total Time (Write)</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+</array>
+</plist>
