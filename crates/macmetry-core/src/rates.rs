@@ -46,9 +46,10 @@ pub struct CpuShare {
 }
 
 impl CpuShare {
-    /// Everything that was not idle.
+    /// Everything that was not idle. Computed from the busy states, not as `100 - idle`, so an interval in which no
+    /// time passed reads 0% busy instead of 100%.
     pub fn busy(&self) -> f64 {
-        (100.0 - self.idle).clamp(0.0, 100.0)
+        (self.user + self.system).clamp(0.0, 100.0)
     }
 }
 
@@ -148,6 +149,12 @@ mod tests {
     fn cpu_share_with_no_time_is_zero() {
         let a = CpuTicks { user: 1, system: 2, idle: 3, nice: 4 };
         assert_eq!(cpu_share(a, a), CpuShare::default());
+    }
+
+    #[test]
+    fn no_elapsed_time_is_not_a_busy_cpu() {
+        let a = CpuTicks { user: 1, system: 2, idle: 3, nice: 4 };
+        assert_eq!(cpu_share(a, a).busy(), 0.0);
     }
 
     #[test]
