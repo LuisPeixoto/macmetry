@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { areaPath, byteTicks, extent, lastValue, linePath, loadLevel, nearestIndex, niceStep, niceTicks, yRange } from "./chart.ts";
+import { areaPath, bandPath, byteTicks, extent, lastValue, linePath, loadLevel, nearestIndex, niceStep, niceTicks, yRange } from "./chart.ts";
 
 test("ticks fall on round numbers and cover the data", () => {
   assert.deepEqual(niceTicks(0, 100, 4), [0, 25, 50, 75, 100], "0..100 in quarters");
@@ -86,4 +86,13 @@ test("size and speed axes land on round numbers of their own unit", () => {
   assert.deepEqual(byteTicks(0, 1000), [0, 1]);
   assert.deepEqual(byteTicks(Number.NaN, 1024), [0, 1]);
   assert.ok(byteTicks(3, 1024).at(-1)! >= 3, "a few bytes still gets an axis");
+});
+
+test("a band runs along the highest values and back along the lowest, once per unbroken run", () => {
+  const x = (i: number) => i * 10;
+  const y = (v: number) => 100 - v;
+  const d = bandPath([10, 20, null, 30], [15, 25, null, 35], x, y);
+  assert.equal(d, "M0.0,85.0L10.0,75.0L10.0,80.0L0.0,90.0ZM30.0,65.0L30.0,70.0Z");
+  assert.equal(bandPath([], [], x, y), "");
+  assert.equal(bandPath([null], [5], x, y), "", "a point with only one end is not drawn");
 });
