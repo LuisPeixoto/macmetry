@@ -1,0 +1,2048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>AGCInfo</key>
+		<dict>
+			<key>fBusyCount</key>
+			<integer>0</integer>
+			<key>fLastSubmissionPID</key>
+			<integer>202</integer>
+			<key>fSubmissionsSinceLastCheck</key>
+			<integer>832321</integer>
+			<key>poweredOffByAGC</key>
+			<false/>
+		</dict>
+		<key>ATY,cbits</key>
+		<integer>2097152</integer>
+		<key>ATY,intrev</key>
+		<integer>60</integer>
+		<key>AccelCaps</key>
+		<integer>15</integer>
+		<key>AccelNativeDMARowByteAlignment</key>
+		<integer>256</integer>
+		<key>CFBundleIdentifier</key>
+		<string>com.apple.kext.AMDRadeonX6000</string>
+		<key>CFBundleIdentifierKernel</key>
+		<string>com.apple.kext.AMDRadeonX6000</string>
+		<key>GPUConfigurationVariable</key>
+		<dict>
+			<key>MemBusWidth</key>
+			<integer>128</integer>
+			<key>MemClkFreq</key>
+			<integer>100000</integer>
+			<key>NumCUPerSH</key>
+			<integer>8</integer>
+			<key>NumROP</key>
+			<integer>8</integer>
+			<key>NumSE</key>
+			<integer>2</integer>
+			<key>NumSH</key>
+			<integer>2</integer>
+			<key>SysClkFreq</key>
+			<integer>290000</integer>
+		</dict>
+		<key>GPUDCCDisplayable</key>
+		<true/>
+		<key>GPUDebugNullClientMask</key>
+		<integer>0</integer>
+		<key>GPURawCounterBundleName</key>
+		<string>AMDRawCounterPlugin</string>
+		<key>GPURawCounterPluginClassName</key>
+		<string>AMDRawCounterSourceGroup</string>
+		<key>GPUTaskSingleChannel</key>
+		<true/>
+		<key>GpuDebugPolicy</key>
+		<integer>0</integer>
+		<key>IOAccelDisplayPipeCapabilities</key>
+		<dict>
+			<key>DisplayPipeSupported</key>
+			<true/>
+			<key>TransactionsSupported</key>
+			<true/>
+		</dict>
+		<key>IOAccelRevision</key>
+		<integer>2</integer>
+		<key>IOCFPlugInTypes</key>
+		<dict>
+			<key>ACCF0000-0000-0000-0000-000a2789904e</key>
+			<string>IOAccelerator2D.plugin</string>
+		</dict>
+		<key>IOClass</key>
+		<string>AMDRadeonX6000_AMDNavi23GraphicsAccelerator</string>
+		<key>IODVDBundleName</key>
+		<string>AMDRadeonVADriver2</string>
+		<key>IOGLBundleName</key>
+		<string>AMDRadeonX6000GLDriver</string>
+		<key>IOGVACodec</key>
+		<string>AMDVCN2</string>
+		<key>IOGVAH264EncodeCapabilities</key>
+		<dict>
+			<key>VTQualityRating</key>
+			<integer>50</integer>
+			<key>VTRating</key>
+			<integer>350</integer>
+		</dict>
+		<key>IOGVAHEVCDecode</key>
+		<string>1</string>
+		<key>IOGVAHEVCDecodeCapabilities</key>
+		<dict>
+			<key>VTPerProfileDetails</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>VTMaxDecodeLevel</key>
+					<integer>153</integer>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>VTMaxDecodeLevel</key>
+					<integer>153</integer>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>VTMaxDecodeLevel</key>
+					<integer>153</integer>
+				</dict>
+			</dict>
+			<key>VTSupportedProfileArray</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+			</array>
+		</dict>
+		<key>IOGVAHEVCEncode</key>
+		<string>1</string>
+		<key>IOGVAHEVCEncodeCapabilities</key>
+		<dict>
+			<key>VTPerProfileDetails</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>VTMaxEncodeLevel</key>
+					<integer>153</integer>
+				</dict>
+			</dict>
+			<key>VTQualityRating</key>
+			<integer>50</integer>
+			<key>VTRating</key>
+			<integer>350</integer>
+			<key>VTSupportedProfileArray</key>
+			<array>
+				<integer>1</integer>
+			</array>
+		</dict>
+		<key>IOGeneralInterest</key>
+		<string>IOCommand is not serializable</string>
+		<key>IOKitDebug</key>
+		<integer>0</integer>
+		<key>IOMatchCategory</key>
+		<string>IOAccelerator</string>
+		<key>IOOCDBundleName</key>
+		<string>AMDRadeonX6000GLDriver</string>
+		<key>IOObjectClass</key>
+		<string>AMDRadeonX6000_AMDNavi23GraphicsAccelerator</string>
+		<key>IOObjectRetainCount</key>
+		<integer>176</integer>
+		<key>IOPCIMatch</key>
+		<string>0x73E31002 0x73FF1002 0x73E01002</string>
+		<key>IOPCITunnelCompatible</key>
+		<true/>
+		<key>IOPersonalityPublisher</key>
+		<string>com.apple.kext.AMDRadeonX6000</string>
+		<key>IOProbeScore</key>
+		<integer>0</integer>
+		<key>IOPropertyMatch</key>
+		<dict>
+			<key>LoadAccelerator</key>
+			<true/>
+		</dict>
+		<key>IOProviderClass</key>
+		<string>IOPCIDevice</string>
+		<key>IORegistryEntryID</key>
+		<integer>4294968824</integer>
+		<key>IORegistryEntryName</key>
+		<string>AMDRadeonX6000_AMDNavi23GraphicsAccelerator</string>
+		<key>IOReportLegend</key>
+		<array>
+			<dict>
+				<key>IOReportChannelInfo</key>
+				<dict>
+					<key>IOReportChannelUnit</key>
+					<integer>0</integer>
+				</dict>
+				<key>IOReportChannels</key>
+				<array>
+					<array>
+						<integer>4000</integer>
+						<integer>6442450945</integer>
+						<string>Overall GPU Busy</string>
+					</array>
+					<array>
+						<integer>4001</integer>
+						<integer>6442450945</integer>
+						<string>Overall GPU total time</string>
+					</array>
+					<array>
+						<integer>4002</integer>
+						<integer>6442450945</integer>
+						<string>3d Busy</string>
+					</array>
+					<array>
+						<integer>4003</integer>
+						<integer>6442450945</integer>
+						<string>3d total time</string>
+					</array>
+					<array>
+						<integer>4010</integer>
+						<integer>6442450945</integer>
+						<string>DMA Busy</string>
+					</array>
+					<array>
+						<integer>4011</integer>
+						<integer>6442450945</integer>
+						<string>DMA total time</string>
+					</array>
+					<array>
+						<integer>4006</integer>
+						<integer>6442450945</integer>
+						<string>Video Busy</string>
+					</array>
+					<array>
+						<integer>4007</integer>
+						<integer>6442450945</integer>
+						<string>Video total time</string>
+					</array>
+					<array>
+						<integer>4008</integer>
+						<integer>6442450945</integer>
+						<string>Compute Busy</string>
+					</array>
+					<array>
+						<integer>4009</integer>
+						<integer>6442450945</integer>
+						<string>Compute total time</string>
+					</array>
+					<array>
+						<integer>4705492297355379200</integer>
+						<integer>6442450945</integer>
+						<string>PM4 Busy</string>
+					</array>
+					<array>
+						<integer>4705492297355383808</integer>
+						<integer>6442450945</integer>
+						<string>PM4 total time</string>
+					</array>
+					<array>
+						<integer>0</integer>
+						<integer>6442450945</integer>
+						<string>Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>1</integer>
+						<integer>6442450945</integer>
+						<string>GL Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>2</integer>
+						<integer>6442450945</integer>
+						<string>CL Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>3</integer>
+						<integer>6442450945</integer>
+						<string>2D Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>4</integer>
+						<integer>6442450945</integer>
+						<string>Video Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>5</integer>
+						<integer>6442450945</integer>
+						<string>Out-Of-Line Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>6</integer>
+						<integer>6442450945</integer>
+						<string>Shared System Memory Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>7</integer>
+						<integer>6442450945</integer>
+						<string>Private Video Memory Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>8</integer>
+						<integer>6442450945</integer>
+						<string>Private System Memory Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>9</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface Backed Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>10</integer>
+						<integer>6442450945</integer>
+						<string>Out-Of-Line Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>11</integer>
+						<integer>6442450945</integer>
+						<string>Private Video Memory Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>12</integer>
+						<integer>6442450945</integer>
+						<string>Private System Memory Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>13</integer>
+						<integer>6442450945</integer>
+						<string>Shared System Memory Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>14</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurfaceRef Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>15</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurfaceBufferRef Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>16</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface Backed Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>17</integer>
+						<integer>6442450945</integer>
+						<string>Texture Count</string>
+					</array>
+					<array>
+						<integer>20</integer>
+						<integer>6442450945</integer>
+						<string>Bytes mapped into the GPU</string>
+					</array>
+					<array>
+						<integer>21</integer>
+						<integer>6442450945</integer>
+						<string>Bytes unmapped from the GPU</string>
+					</array>
+					<array>
+						<integer>82</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelClientShared allocated bytes</string>
+					</array>
+					<array>
+						<integer>22</integer>
+						<integer>6442450945</integer>
+						<string>Private textures bytes paged on</string>
+					</array>
+					<array>
+						<integer>23</integer>
+						<integer>6442450945</integer>
+						<string>Out of line texture bytes paged on</string>
+					</array>
+					<array>
+						<integer>24</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurface bytes paged on</string>
+					</array>
+					<array>
+						<integer>25</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface bytes paged on</string>
+					</array>
+					<array>
+						<integer>26</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface bytes evicted</string>
+					</array>
+					<array>
+						<integer>27</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurface bytes evicted</string>
+					</array>
+					<array>
+						<integer>28</integer>
+						<integer>6442450945</integer>
+						<string>Texture bytes evicted</string>
+					</array>
+					<array>
+						<integer>29</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface bytes paged off</string>
+					</array>
+					<array>
+						<integer>30</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurface bytes paged off</string>
+					</array>
+					<array>
+						<integer>31</integer>
+						<integer>6442450945</integer>
+						<string>Texture bytes paged off</string>
+					</array>
+					<array>
+						<integer>32</integer>
+						<integer>6442450945</integer>
+						<string>Texture bytes voluntarily paged off</string>
+					</array>
+					<array>
+						<integer>33</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurface count</string>
+					</array>
+					<array>
+						<integer>34</integer>
+						<integer>6442450945</integer>
+						<string>Volatile IOAccelSurface count</string>
+					</array>
+					<array>
+						<integer>35</integer>
+						<integer>6442450945</integer>
+						<string>2D context count</string>
+					</array>
+					<array>
+						<integer>36</integer>
+						<integer>6442450945</integer>
+						<string>Video context count</string>
+					</array>
+					<array>
+						<integer>37</integer>
+						<integer>6442450945</integer>
+						<string>OpenGL context count</string>
+					</array>
+					<array>
+						<integer>38</integer>
+						<integer>6442450945</integer>
+						<string>OpenCL context count</string>
+					</array>
+					<array>
+						<integer>39</integer>
+						<integer>6442450945</integer>
+						<string>Buffer swap count</string>
+					</array>
+					<array>
+						<integer>40</integer>
+						<integer>6442450945</integer>
+						<string>Buffer flip count</string>
+					</array>
+					<array>
+						<integer>41</integer>
+						<integer>6442450945</integer>
+						<string>Databuffer count</string>
+					</array>
+					<array>
+						<integer>42</integer>
+						<integer>6442450945</integer>
+						<string>VRAM eviction wait time</string>
+					</array>
+					<array>
+						<integer>43</integer>
+						<integer>6442450945</integer>
+						<string>CPU wait on GPU</string>
+					</array>
+					<array>
+						<integer>44</integer>
+						<integer>6442450945</integer>
+						<string>CPU wait to submit to GPU</string>
+					</array>
+					<array>
+						<integer>45</integer>
+						<integer>6442450945</integer>
+						<string>GL Client wait on GPU</string>
+					</array>
+					<array>
+						<integer>46</integer>
+						<integer>6442450945</integer>
+						<string>CL Client wait on GPU</string>
+					</array>
+					<array>
+						<integer>47</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait to evict resource</string>
+					</array>
+					<array>
+						<integer>49</integer>
+						<integer>6442450945</integer>
+						<string>CPU wait for free databuffer</string>
+					</array>
+					<array>
+						<integer>53</integer>
+						<integer>6442450945</integer>
+						<string>GL Client wait for swap complete</string>
+					</array>
+					<array>
+						<integer>55</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait to copy in surface</string>
+					</array>
+					<array>
+						<integer>56</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait to copy out surface</string>
+					</array>
+					<array>
+						<integer>59</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for surface idle</string>
+					</array>
+					<array>
+						<integer>60</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for resource read</string>
+					</array>
+					<array>
+						<integer>61</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for resource write</string>
+					</array>
+					<array>
+						<integer>62</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for all 2D finish</string>
+					</array>
+					<array>
+						<integer>63</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for 2D finish</string>
+					</array>
+					<array>
+						<integer>64</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for video finish</string>
+					</array>
+					<array>
+						<integer>65</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for GL finish</string>
+					</array>
+					<array>
+						<integer>66</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for CL finish</string>
+					</array>
+					<array>
+						<integer>106</integer>
+						<integer>6442450945</integer>
+						<string>In use system memory</string>
+					</array>
+					<array>
+						<integer>105</integer>
+						<integer>6442450945</integer>
+						<string>In use video memory</string>
+					</array>
+					<array>
+						<integer>103</integer>
+						<integer>6442450945</integer>
+						<string>Command Queue Count</string>
+					</array>
+					<array>
+						<integer>104</integer>
+						<integer>6442450945</integer>
+						<string>GPU Restart Count</string>
+					</array>
+				</array>
+				<key>IOReportGroupName</key>
+				<string>Internal Statistics</string>
+			</dict>
+		</array>
+		<key>IOReportLegendPublic</key>
+		<true/>
+		<key>IOServiceBusyState</key>
+		<integer>0</integer>
+		<key>IOServiceBusyTime</key>
+		<integer>98694097</integer>
+		<key>IOServiceState</key>
+		<integer>30</integer>
+		<key>IOSourceVersion</key>
+		<string>0.0.0.0.0</string>
+		<key>IOVARendererID</key>
+		<integer>16908292</integer>
+		<key>InternalStatistics</key>
+		<dict/>
+		<key>InternalStatisticsAccm</key>
+		<dict/>
+		<key>MetalPluginClassName</key>
+		<string>AMDMTLGFX10Device</string>
+		<key>MetalPluginName</key>
+		<string>AMDRadeonX6000MTLDriver</string>
+		<key>MetalStatisticsName</key>
+		<string>GFX10Statistics</string>
+		<key>PerformanceStatistics</key>
+		<dict>
+			<key>Core Clock(MHz)</key>
+			<integer>111</integer>
+			<key>Device Utilization %</key>
+			<integer>4</integer>
+			<key>Fan Speed(%)</key>
+			<integer>19</integer>
+			<key>Fan Speed(RPM)</key>
+			<integer>683</integer>
+			<key>GPU Activity(%)</key>
+			<integer>1</integer>
+			<key>HWChannel GFX | Commands Completed</key>
+			<integer>22535</integer>
+			<key>HWChannel GFX | Commands Submitted</key>
+			<integer>22536</integer>
+			<key>HWChannel HIQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel HIQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel KIQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel KIQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0 | Commands Completed</key>
+			<integer>1436</integer>
+			<key>HWChannel SDMA0 | Commands Submitted</key>
+			<integer>1436</integer>
+			<key>HWChannel SDMA0_PAGE | Commands Completed</key>
+			<integer>24807</integer>
+			<key>HWChannel SDMA0_PAGE | Commands Submitted</key>
+			<integer>24807</integer>
+			<key>HWChannel SDMA1 | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1 | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1_PAGE | Commands Completed</key>
+			<integer>2159</integer>
+			<key>HWChannel SDMA1_PAGE | Commands Submitted</key>
+			<integer>2159</integer>
+			<key>HWChannel VCN0Dec | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Dec | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Enc | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Enc | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0EncLLQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0EncLLQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>Memory Clock(MHz)</key>
+			<integer>1990</integer>
+			<key>Temperature(C)</key>
+			<integer>69</integer>
+			<key>Total Power(W)</key>
+			<integer>21</integer>
+			<key>agpTextureCreationBytes</key>
+			<integer>13631488</integer>
+			<key>agpTextureCreationCount</key>
+			<integer>19</integer>
+			<key>agprefTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>agprefTextureCreationCount</key>
+			<integer>0</integer>
+			<key>bufferFlipCount</key>
+			<integer>0</integer>
+			<key>bufferSwapCount</key>
+			<integer>0</integer>
+			<key>clientGLWaitTime</key>
+			<integer>0</integer>
+			<key>clientSharedAllocatedBytes</key>
+			<integer>2265088</integer>
+			<key>context2DCount</key>
+			<integer>4</integer>
+			<key>contextCLCount</key>
+			<integer>0</integer>
+			<key>contextGLCount</key>
+			<integer>1</integer>
+			<key>contextVideoCount</key>
+			<integer>0</integer>
+			<key>dataBufferCount</key>
+			<integer>0</integer>
+			<key>dataBytesPerSample</key>
+			<integer>0</integer>
+			<key>finish2DWaitTime</key>
+			<integer>0</integer>
+			<key>finishAll2DWaitTime</key>
+			<integer>0</integer>
+			<key>finishCLWaitTime</key>
+			<integer>0</integer>
+			<key>finishGLWaitTime</key>
+			<integer>0</integer>
+			<key>finishVideoWaitTime</key>
+			<integer>0</integer>
+			<key>freeDataBufferWaitTime</key>
+			<integer>0</integer>
+			<key>freeSurfaceBackingWaitTime</key>
+			<integer>0</integer>
+			<key>freeSurfaceSwapBufferWaitTime</key>
+			<integer>0</integer>
+			<key>freeToAllocGPUAddressWaitTime</key>
+			<integer>0</integer>
+			<key>gartCacheBytes</key>
+			<integer>33554432</integer>
+			<key>gartFreeBytes</key>
+			<integer>11679555584</integer>
+			<key>gartMapInBytesPerSample</key>
+			<integer>0</integer>
+			<key>gartMapOutBytesPerSample</key>
+			<integer>0</integer>
+			<key>gartSizeBytes</key>
+			<integer>11811160064</integer>
+			<key>gartUsedBytes</key>
+			<integer>131604480</integer>
+			<key>hardwareSubmitWaitTime</key>
+			<integer>0</integer>
+			<key>hardwareWaitTime</key>
+			<integer>0</integer>
+			<key>inUseSysMemoryBytes</key>
+			<integer>131604480</integer>
+			<key>inUseVidMemoryBytes</key>
+			<integer>2877124608</integer>
+			<key>ioSurfacePageInBytes</key>
+			<integer>0</integer>
+			<key>ioSurfacePageOutBytes</key>
+			<integer>0</integer>
+			<key>ioSurfaceReadOutBytes</key>
+			<integer>0</integer>
+			<key>iosurfaceTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>iosurfaceTextureCreationCount</key>
+			<integer>713</integer>
+			<key>oolTextureCreationBytes</key>
+			<integer>25477120</integer>
+			<key>oolTextureCreationCount</key>
+			<integer>137</integer>
+			<key>oolTexturePageInBytes</key>
+			<integer>25477120</integer>
+			<key>orphanedNonReusableSysMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableSysMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableVidMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableVidMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryHitRate</key>
+			<integer>0</integer>
+			<key>orphanedReusableVidMemoryBytes</key>
+			<integer>5226147840</integer>
+			<key>orphanedReusableVidMemoryCount</key>
+			<integer>2754</integer>
+			<key>orphanedReusableVidMemoryHitRate</key>
+			<integer>94</integer>
+			<key>recoveryCount</key>
+			<integer>0</integer>
+			<key>stdTextureCreationBytes</key>
+			<integer>924604416</integer>
+			<key>stdTextureCreationCount</key>
+			<integer>3284</integer>
+			<key>stdTexturePageInBytes</key>
+			<integer>-2078724096</integer>
+			<key>surfaceBufferPageInBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferPageOutBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferReadOutBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferTextureCreationCount</key>
+			<integer>0</integer>
+			<key>surfaceCopyInWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceCopyOutWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceCount</key>
+			<integer>18</integer>
+			<key>surfaceReadLockIdleWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceSetShapeIdleWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceTextureCreationCount</key>
+			<integer>0</integer>
+			<key>surfaceWriteLockIdleWaitTime</key>
+			<integer>0</integer>
+			<key>swapBytesPerSample</key>
+			<integer>0</integer>
+			<key>swapComplete2DWaitTime</key>
+			<integer>0</integer>
+			<key>swapCompleteGLWaitTime</key>
+			<integer>0</integer>
+			<key>swapCompleteVideoWaitTime</key>
+			<integer>0</integer>
+			<key>textureCount</key>
+			<integer>2964</integer>
+			<key>texturePageOutBytes</key>
+			<integer>0</integer>
+			<key>textureReadOutBytes</key>
+			<integer>32243712</integer>
+			<key>textureVolunteerUnloadBytes</key>
+			<integer>0</integer>
+			<key>volatileSurfaceCount</key>
+			<integer>0</integer>
+			<key>vramEvictionWaitTime</key>
+			<integer>0</integer>
+			<key>vramFreeBytes</key>
+			<integer>466993152</integer>
+		</dict>
+		<key>PerformanceStatisticsAccum</key>
+		<dict>
+			<key>Core Clock(MHz)</key>
+			<integer>111</integer>
+			<key>Device Utilization %</key>
+			<integer>0</integer>
+			<key>Fan Speed(%)</key>
+			<integer>19</integer>
+			<key>Fan Speed(RPM)</key>
+			<integer>683</integer>
+			<key>GPU Activity(%)</key>
+			<integer>1</integer>
+			<key>HWChannel GFX | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel GFX | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel HIQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel HIQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel KIQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel KIQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0 | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0 | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0_PAGE | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0_PAGE | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1 | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1 | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1_PAGE | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1_PAGE | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Dec | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Dec | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Enc | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Enc | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0EncLLQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0EncLLQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>Memory Clock(MHz)</key>
+			<integer>1990</integer>
+			<key>Temperature(C)</key>
+			<integer>69</integer>
+			<key>Total Power(W)</key>
+			<integer>21</integer>
+			<key>agpTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>agpTextureCreationCount</key>
+			<integer>0</integer>
+			<key>agprefTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>agprefTextureCreationCount</key>
+			<integer>0</integer>
+			<key>bufferFlipCount</key>
+			<integer>0</integer>
+			<key>bufferSwapCount</key>
+			<integer>0</integer>
+			<key>clientGLWaitTime</key>
+			<integer>0</integer>
+			<key>clientSharedAllocatedBytes</key>
+			<integer>2265088</integer>
+			<key>context2DCount</key>
+			<integer>4</integer>
+			<key>contextCLCount</key>
+			<integer>0</integer>
+			<key>contextGLCount</key>
+			<integer>1</integer>
+			<key>contextVideoCount</key>
+			<integer>0</integer>
+			<key>dataBufferCount</key>
+			<integer>0</integer>
+			<key>dataBytesPerSample</key>
+			<integer>0</integer>
+			<key>finish2DWaitTime</key>
+			<integer>0</integer>
+			<key>finishAll2DWaitTime</key>
+			<integer>0</integer>
+			<key>finishCLWaitTime</key>
+			<integer>0</integer>
+			<key>finishGLWaitTime</key>
+			<integer>0</integer>
+			<key>finishVideoWaitTime</key>
+			<integer>0</integer>
+			<key>freeDataBufferWaitTime</key>
+			<integer>0</integer>
+			<key>freeSurfaceBackingWaitTime</key>
+			<integer>0</integer>
+			<key>freeSurfaceSwapBufferWaitTime</key>
+			<integer>0</integer>
+			<key>freeToAllocGPUAddressWaitTime</key>
+			<integer>0</integer>
+			<key>gartCacheBytes</key>
+			<integer>33554432</integer>
+			<key>gartFreeBytes</key>
+			<integer>11679555584</integer>
+			<key>gartMapInBytesPerSample</key>
+			<integer>0</integer>
+			<key>gartMapOutBytesPerSample</key>
+			<integer>0</integer>
+			<key>gartSizeBytes</key>
+			<integer>11811160064</integer>
+			<key>gartUsedBytes</key>
+			<integer>131604480</integer>
+			<key>hardwareSubmitWaitTime</key>
+			<integer>0</integer>
+			<key>hardwareWaitTime</key>
+			<integer>0</integer>
+			<key>inUseSysMemoryBytes</key>
+			<integer>131604480</integer>
+			<key>inUseVidMemoryBytes</key>
+			<integer>2877124608</integer>
+			<key>ioSurfacePageInBytes</key>
+			<integer>0</integer>
+			<key>ioSurfacePageOutBytes</key>
+			<integer>0</integer>
+			<key>ioSurfaceReadOutBytes</key>
+			<integer>0</integer>
+			<key>iosurfaceTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>iosurfaceTextureCreationCount</key>
+			<integer>0</integer>
+			<key>oolTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>oolTextureCreationCount</key>
+			<integer>0</integer>
+			<key>oolTexturePageInBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableSysMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableSysMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableVidMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableVidMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryHitRate</key>
+			<integer>0</integer>
+			<key>orphanedReusableVidMemoryBytes</key>
+			<integer>5226147840</integer>
+			<key>orphanedReusableVidMemoryCount</key>
+			<integer>2754</integer>
+			<key>orphanedReusableVidMemoryHitRate</key>
+			<integer>94</integer>
+			<key>recoveryCount</key>
+			<integer>0</integer>
+			<key>stdTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>stdTextureCreationCount</key>
+			<integer>0</integer>
+			<key>stdTexturePageInBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferPageInBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferPageOutBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferReadOutBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferTextureCreationCount</key>
+			<integer>0</integer>
+			<key>surfaceCopyInWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceCopyOutWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceCount</key>
+			<integer>18</integer>
+			<key>surfaceReadLockIdleWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceSetShapeIdleWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceTextureCreationCount</key>
+			<integer>0</integer>
+			<key>surfaceWriteLockIdleWaitTime</key>
+			<integer>0</integer>
+			<key>swapBytesPerSample</key>
+			<integer>0</integer>
+			<key>swapComplete2DWaitTime</key>
+			<integer>0</integer>
+			<key>swapCompleteGLWaitTime</key>
+			<integer>0</integer>
+			<key>swapCompleteVideoWaitTime</key>
+			<integer>0</integer>
+			<key>textureCount</key>
+			<integer>2964</integer>
+			<key>texturePageOutBytes</key>
+			<integer>0</integer>
+			<key>textureReadOutBytes</key>
+			<integer>0</integer>
+			<key>textureVolunteerUnloadBytes</key>
+			<integer>0</integer>
+			<key>volatileSurfaceCount</key>
+			<integer>0</integer>
+			<key>vramEvictionWaitTime</key>
+			<integer>0</integer>
+			<key>vramFreeBytes</key>
+			<integer>466993152</integer>
+		</dict>
+		<key>ResNoAllocPaging</key>
+		<integer>0</integer>
+		<key>SWIP_properties</key>
+		<dict>
+			<key>EnableGDDR6MemoryTraining</key>
+			<integer>0</integer>
+			<key>EnableSwVCNFWLoading</key>
+			<integer>0</integer>
+			<key>EnableSwVCNUnifiedQueue</key>
+			<false/>
+			<key>EnableVCNFWLog</key>
+			<integer>0</integer>
+		</dict>
+		<key>SurfaceList</key>
+		<array/>
+		<key>cail_properties</key>
+		<dict/>
+		<key>dpm</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>AGCInfo</key>
+		<dict>
+			<key>fBusyCount</key>
+			<integer>0</integer>
+			<key>fLastSubmissionPID</key>
+			<integer>202</integer>
+			<key>fSubmissionsSinceLastCheck</key>
+			<integer>832322</integer>
+			<key>poweredOffByAGC</key>
+			<false/>
+		</dict>
+		<key>ATY,cbits</key>
+		<integer>2097152</integer>
+		<key>ATY,intrev</key>
+		<integer>60</integer>
+		<key>AccelCaps</key>
+		<integer>15</integer>
+		<key>AccelNativeDMARowByteAlignment</key>
+		<integer>256</integer>
+		<key>CFBundleIdentifier</key>
+		<string>com.apple.kext.AMDRadeonX6000</string>
+		<key>CFBundleIdentifierKernel</key>
+		<string>com.apple.kext.AMDRadeonX6000</string>
+		<key>GPUConfigurationVariable</key>
+		<dict>
+			<key>MemBusWidth</key>
+			<integer>128</integer>
+			<key>MemClkFreq</key>
+			<integer>100000</integer>
+			<key>NumCUPerSH</key>
+			<integer>8</integer>
+			<key>NumROP</key>
+			<integer>8</integer>
+			<key>NumSE</key>
+			<integer>2</integer>
+			<key>NumSH</key>
+			<integer>2</integer>
+			<key>SysClkFreq</key>
+			<integer>290000</integer>
+		</dict>
+		<key>GPUDCCDisplayable</key>
+		<true/>
+		<key>GPUDebugNullClientMask</key>
+		<integer>0</integer>
+		<key>GPURawCounterBundleName</key>
+		<string>AMDRawCounterPlugin</string>
+		<key>GPURawCounterPluginClassName</key>
+		<string>AMDRawCounterSourceGroup</string>
+		<key>GPUTaskSingleChannel</key>
+		<true/>
+		<key>GpuDebugPolicy</key>
+		<integer>0</integer>
+		<key>IOAccelDisplayPipeCapabilities</key>
+		<dict>
+			<key>DisplayPipeSupported</key>
+			<true/>
+			<key>TransactionsSupported</key>
+			<true/>
+		</dict>
+		<key>IOAccelRevision</key>
+		<integer>2</integer>
+		<key>IOCFPlugInTypes</key>
+		<dict>
+			<key>ACCF0000-0000-0000-0000-000a2789904e</key>
+			<string>IOAccelerator2D.plugin</string>
+		</dict>
+		<key>IOClass</key>
+		<string>AMDRadeonX6000_AMDNavi23GraphicsAccelerator</string>
+		<key>IODVDBundleName</key>
+		<string>AMDRadeonVADriver2</string>
+		<key>IOGLBundleName</key>
+		<string>AMDRadeonX6000GLDriver</string>
+		<key>IOGVACodec</key>
+		<string>AMDVCN2</string>
+		<key>IOGVAH264EncodeCapabilities</key>
+		<dict>
+			<key>VTQualityRating</key>
+			<integer>50</integer>
+			<key>VTRating</key>
+			<integer>350</integer>
+		</dict>
+		<key>IOGVAHEVCDecode</key>
+		<string>1</string>
+		<key>IOGVAHEVCDecodeCapabilities</key>
+		<dict>
+			<key>VTPerProfileDetails</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>VTMaxDecodeLevel</key>
+					<integer>153</integer>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>VTMaxDecodeLevel</key>
+					<integer>153</integer>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>VTMaxDecodeLevel</key>
+					<integer>153</integer>
+				</dict>
+			</dict>
+			<key>VTSupportedProfileArray</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+			</array>
+		</dict>
+		<key>IOGVAHEVCEncode</key>
+		<string>1</string>
+		<key>IOGVAHEVCEncodeCapabilities</key>
+		<dict>
+			<key>VTPerProfileDetails</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>VTMaxEncodeLevel</key>
+					<integer>153</integer>
+				</dict>
+			</dict>
+			<key>VTQualityRating</key>
+			<integer>50</integer>
+			<key>VTRating</key>
+			<integer>350</integer>
+			<key>VTSupportedProfileArray</key>
+			<array>
+				<integer>1</integer>
+			</array>
+		</dict>
+		<key>IOGeneralInterest</key>
+		<string>IOCommand is not serializable</string>
+		<key>IOKitDebug</key>
+		<integer>0</integer>
+		<key>IOMatchCategory</key>
+		<string>IOAccelerator</string>
+		<key>IOOCDBundleName</key>
+		<string>AMDRadeonX6000GLDriver</string>
+		<key>IOObjectClass</key>
+		<string>AMDRadeonX6000_AMDNavi23GraphicsAccelerator</string>
+		<key>IOObjectRetainCount</key>
+		<integer>175</integer>
+		<key>IOPCIMatch</key>
+		<string>0x73E31002 0x73FF1002 0x73E01002</string>
+		<key>IOPCITunnelCompatible</key>
+		<true/>
+		<key>IOPersonalityPublisher</key>
+		<string>com.apple.kext.AMDRadeonX6000</string>
+		<key>IOProbeScore</key>
+		<integer>0</integer>
+		<key>IOPropertyMatch</key>
+		<dict>
+			<key>LoadAccelerator</key>
+			<true/>
+		</dict>
+		<key>IOProviderClass</key>
+		<string>IOPCIDevice</string>
+		<key>IORegistryEntryID</key>
+		<integer>4294968824</integer>
+		<key>IORegistryEntryName</key>
+		<string>AMDRadeonX6000_AMDNavi23GraphicsAccelerator</string>
+		<key>IOReportLegend</key>
+		<array>
+			<dict>
+				<key>IOReportChannelInfo</key>
+				<dict>
+					<key>IOReportChannelUnit</key>
+					<integer>0</integer>
+				</dict>
+				<key>IOReportChannels</key>
+				<array>
+					<array>
+						<integer>4000</integer>
+						<integer>6442450945</integer>
+						<string>Overall GPU Busy</string>
+					</array>
+					<array>
+						<integer>4001</integer>
+						<integer>6442450945</integer>
+						<string>Overall GPU total time</string>
+					</array>
+					<array>
+						<integer>4002</integer>
+						<integer>6442450945</integer>
+						<string>3d Busy</string>
+					</array>
+					<array>
+						<integer>4003</integer>
+						<integer>6442450945</integer>
+						<string>3d total time</string>
+					</array>
+					<array>
+						<integer>4010</integer>
+						<integer>6442450945</integer>
+						<string>DMA Busy</string>
+					</array>
+					<array>
+						<integer>4011</integer>
+						<integer>6442450945</integer>
+						<string>DMA total time</string>
+					</array>
+					<array>
+						<integer>4006</integer>
+						<integer>6442450945</integer>
+						<string>Video Busy</string>
+					</array>
+					<array>
+						<integer>4007</integer>
+						<integer>6442450945</integer>
+						<string>Video total time</string>
+					</array>
+					<array>
+						<integer>4008</integer>
+						<integer>6442450945</integer>
+						<string>Compute Busy</string>
+					</array>
+					<array>
+						<integer>4009</integer>
+						<integer>6442450945</integer>
+						<string>Compute total time</string>
+					</array>
+					<array>
+						<integer>4705492297355379200</integer>
+						<integer>6442450945</integer>
+						<string>PM4 Busy</string>
+					</array>
+					<array>
+						<integer>4705492297355383808</integer>
+						<integer>6442450945</integer>
+						<string>PM4 total time</string>
+					</array>
+					<array>
+						<integer>0</integer>
+						<integer>6442450945</integer>
+						<string>Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>1</integer>
+						<integer>6442450945</integer>
+						<string>GL Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>2</integer>
+						<integer>6442450945</integer>
+						<string>CL Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>3</integer>
+						<integer>6442450945</integer>
+						<string>2D Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>4</integer>
+						<integer>6442450945</integer>
+						<string>Video Command Buffer Bytes</string>
+					</array>
+					<array>
+						<integer>5</integer>
+						<integer>6442450945</integer>
+						<string>Out-Of-Line Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>6</integer>
+						<integer>6442450945</integer>
+						<string>Shared System Memory Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>7</integer>
+						<integer>6442450945</integer>
+						<string>Private Video Memory Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>8</integer>
+						<integer>6442450945</integer>
+						<string>Private System Memory Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>9</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface Backed Texture Creation Bytes</string>
+					</array>
+					<array>
+						<integer>10</integer>
+						<integer>6442450945</integer>
+						<string>Out-Of-Line Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>11</integer>
+						<integer>6442450945</integer>
+						<string>Private Video Memory Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>12</integer>
+						<integer>6442450945</integer>
+						<string>Private System Memory Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>13</integer>
+						<integer>6442450945</integer>
+						<string>Shared System Memory Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>14</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurfaceRef Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>15</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurfaceBufferRef Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>16</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface Backed Texture Creation Count</string>
+					</array>
+					<array>
+						<integer>17</integer>
+						<integer>6442450945</integer>
+						<string>Texture Count</string>
+					</array>
+					<array>
+						<integer>20</integer>
+						<integer>6442450945</integer>
+						<string>Bytes mapped into the GPU</string>
+					</array>
+					<array>
+						<integer>21</integer>
+						<integer>6442450945</integer>
+						<string>Bytes unmapped from the GPU</string>
+					</array>
+					<array>
+						<integer>82</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelClientShared allocated bytes</string>
+					</array>
+					<array>
+						<integer>22</integer>
+						<integer>6442450945</integer>
+						<string>Private textures bytes paged on</string>
+					</array>
+					<array>
+						<integer>23</integer>
+						<integer>6442450945</integer>
+						<string>Out of line texture bytes paged on</string>
+					</array>
+					<array>
+						<integer>24</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurface bytes paged on</string>
+					</array>
+					<array>
+						<integer>25</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface bytes paged on</string>
+					</array>
+					<array>
+						<integer>26</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface bytes evicted</string>
+					</array>
+					<array>
+						<integer>27</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurface bytes evicted</string>
+					</array>
+					<array>
+						<integer>28</integer>
+						<integer>6442450945</integer>
+						<string>Texture bytes evicted</string>
+					</array>
+					<array>
+						<integer>29</integer>
+						<integer>6442450945</integer>
+						<string>IOSurface bytes paged off</string>
+					</array>
+					<array>
+						<integer>30</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurface bytes paged off</string>
+					</array>
+					<array>
+						<integer>31</integer>
+						<integer>6442450945</integer>
+						<string>Texture bytes paged off</string>
+					</array>
+					<array>
+						<integer>32</integer>
+						<integer>6442450945</integer>
+						<string>Texture bytes voluntarily paged off</string>
+					</array>
+					<array>
+						<integer>33</integer>
+						<integer>6442450945</integer>
+						<string>IOAccelSurface count</string>
+					</array>
+					<array>
+						<integer>34</integer>
+						<integer>6442450945</integer>
+						<string>Volatile IOAccelSurface count</string>
+					</array>
+					<array>
+						<integer>35</integer>
+						<integer>6442450945</integer>
+						<string>2D context count</string>
+					</array>
+					<array>
+						<integer>36</integer>
+						<integer>6442450945</integer>
+						<string>Video context count</string>
+					</array>
+					<array>
+						<integer>37</integer>
+						<integer>6442450945</integer>
+						<string>OpenGL context count</string>
+					</array>
+					<array>
+						<integer>38</integer>
+						<integer>6442450945</integer>
+						<string>OpenCL context count</string>
+					</array>
+					<array>
+						<integer>39</integer>
+						<integer>6442450945</integer>
+						<string>Buffer swap count</string>
+					</array>
+					<array>
+						<integer>40</integer>
+						<integer>6442450945</integer>
+						<string>Buffer flip count</string>
+					</array>
+					<array>
+						<integer>41</integer>
+						<integer>6442450945</integer>
+						<string>Databuffer count</string>
+					</array>
+					<array>
+						<integer>42</integer>
+						<integer>6442450945</integer>
+						<string>VRAM eviction wait time</string>
+					</array>
+					<array>
+						<integer>43</integer>
+						<integer>6442450945</integer>
+						<string>CPU wait on GPU</string>
+					</array>
+					<array>
+						<integer>44</integer>
+						<integer>6442450945</integer>
+						<string>CPU wait to submit to GPU</string>
+					</array>
+					<array>
+						<integer>45</integer>
+						<integer>6442450945</integer>
+						<string>GL Client wait on GPU</string>
+					</array>
+					<array>
+						<integer>46</integer>
+						<integer>6442450945</integer>
+						<string>CL Client wait on GPU</string>
+					</array>
+					<array>
+						<integer>47</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait to evict resource</string>
+					</array>
+					<array>
+						<integer>49</integer>
+						<integer>6442450945</integer>
+						<string>CPU wait for free databuffer</string>
+					</array>
+					<array>
+						<integer>53</integer>
+						<integer>6442450945</integer>
+						<string>GL Client wait for swap complete</string>
+					</array>
+					<array>
+						<integer>55</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait to copy in surface</string>
+					</array>
+					<array>
+						<integer>56</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait to copy out surface</string>
+					</array>
+					<array>
+						<integer>59</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for surface idle</string>
+					</array>
+					<array>
+						<integer>60</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for resource read</string>
+					</array>
+					<array>
+						<integer>61</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for resource write</string>
+					</array>
+					<array>
+						<integer>62</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for all 2D finish</string>
+					</array>
+					<array>
+						<integer>63</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for 2D finish</string>
+					</array>
+					<array>
+						<integer>64</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for video finish</string>
+					</array>
+					<array>
+						<integer>65</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for GL finish</string>
+					</array>
+					<array>
+						<integer>66</integer>
+						<integer>6442450945</integer>
+						<string>CPU Wait for CL finish</string>
+					</array>
+					<array>
+						<integer>106</integer>
+						<integer>6442450945</integer>
+						<string>In use system memory</string>
+					</array>
+					<array>
+						<integer>105</integer>
+						<integer>6442450945</integer>
+						<string>In use video memory</string>
+					</array>
+					<array>
+						<integer>103</integer>
+						<integer>6442450945</integer>
+						<string>Command Queue Count</string>
+					</array>
+					<array>
+						<integer>104</integer>
+						<integer>6442450945</integer>
+						<string>GPU Restart Count</string>
+					</array>
+				</array>
+				<key>IOReportGroupName</key>
+				<string>Internal Statistics</string>
+			</dict>
+		</array>
+		<key>IOReportLegendPublic</key>
+		<true/>
+		<key>IOServiceBusyState</key>
+		<integer>0</integer>
+		<key>IOServiceBusyTime</key>
+		<integer>98694097</integer>
+		<key>IOServiceState</key>
+		<integer>30</integer>
+		<key>IOSourceVersion</key>
+		<string>0.0.0.0.0</string>
+		<key>IOVARendererID</key>
+		<integer>16908292</integer>
+		<key>InternalStatistics</key>
+		<dict/>
+		<key>InternalStatisticsAccm</key>
+		<dict/>
+		<key>MetalPluginClassName</key>
+		<string>AMDMTLGFX10Device</string>
+		<key>MetalPluginName</key>
+		<string>AMDRadeonX6000MTLDriver</string>
+		<key>MetalStatisticsName</key>
+		<string>GFX10Statistics</string>
+		<key>PerformanceStatistics</key>
+		<dict>
+			<key>Core Clock(MHz)</key>
+			<integer>111</integer>
+			<key>Device Utilization %</key>
+			<integer>3</integer>
+			<key>Fan Speed(%)</key>
+			<integer>19</integer>
+			<key>Fan Speed(RPM)</key>
+			<integer>683</integer>
+			<key>GPU Activity(%)</key>
+			<integer>1</integer>
+			<key>HWChannel GFX | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel GFX | Commands Submitted</key>
+			<integer>1</integer>
+			<key>HWChannel HIQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel HIQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel KIQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel KIQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0 | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0 | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0_PAGE | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0_PAGE | Commands Submitted</key>
+			<integer>2</integer>
+			<key>HWChannel SDMA1 | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1 | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1_PAGE | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1_PAGE | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Dec | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Dec | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Enc | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Enc | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0EncLLQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0EncLLQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>Memory Clock(MHz)</key>
+			<integer>1990</integer>
+			<key>Temperature(C)</key>
+			<integer>69</integer>
+			<key>Total Power(W)</key>
+			<integer>21</integer>
+			<key>agpTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>agpTextureCreationCount</key>
+			<integer>0</integer>
+			<key>agprefTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>agprefTextureCreationCount</key>
+			<integer>0</integer>
+			<key>bufferFlipCount</key>
+			<integer>0</integer>
+			<key>bufferSwapCount</key>
+			<integer>0</integer>
+			<key>clientGLWaitTime</key>
+			<integer>0</integer>
+			<key>clientSharedAllocatedBytes</key>
+			<integer>2265088</integer>
+			<key>context2DCount</key>
+			<integer>4</integer>
+			<key>contextCLCount</key>
+			<integer>0</integer>
+			<key>contextGLCount</key>
+			<integer>1</integer>
+			<key>contextVideoCount</key>
+			<integer>0</integer>
+			<key>dataBufferCount</key>
+			<integer>0</integer>
+			<key>dataBytesPerSample</key>
+			<integer>0</integer>
+			<key>finish2DWaitTime</key>
+			<integer>0</integer>
+			<key>finishAll2DWaitTime</key>
+			<integer>0</integer>
+			<key>finishCLWaitTime</key>
+			<integer>0</integer>
+			<key>finishGLWaitTime</key>
+			<integer>0</integer>
+			<key>finishVideoWaitTime</key>
+			<integer>0</integer>
+			<key>freeDataBufferWaitTime</key>
+			<integer>0</integer>
+			<key>freeSurfaceBackingWaitTime</key>
+			<integer>0</integer>
+			<key>freeSurfaceSwapBufferWaitTime</key>
+			<integer>0</integer>
+			<key>freeToAllocGPUAddressWaitTime</key>
+			<integer>0</integer>
+			<key>gartCacheBytes</key>
+			<integer>33554432</integer>
+			<key>gartFreeBytes</key>
+			<integer>11679555584</integer>
+			<key>gartMapInBytesPerSample</key>
+			<integer>0</integer>
+			<key>gartMapOutBytesPerSample</key>
+			<integer>0</integer>
+			<key>gartSizeBytes</key>
+			<integer>11811160064</integer>
+			<key>gartUsedBytes</key>
+			<integer>131604480</integer>
+			<key>hardwareSubmitWaitTime</key>
+			<integer>0</integer>
+			<key>hardwareWaitTime</key>
+			<integer>0</integer>
+			<key>inUseSysMemoryBytes</key>
+			<integer>131604480</integer>
+			<key>inUseVidMemoryBytes</key>
+			<integer>2877124608</integer>
+			<key>ioSurfacePageInBytes</key>
+			<integer>0</integer>
+			<key>ioSurfacePageOutBytes</key>
+			<integer>0</integer>
+			<key>ioSurfaceReadOutBytes</key>
+			<integer>0</integer>
+			<key>iosurfaceTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>iosurfaceTextureCreationCount</key>
+			<integer>0</integer>
+			<key>oolTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>oolTextureCreationCount</key>
+			<integer>0</integer>
+			<key>oolTexturePageInBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableSysMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableSysMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableVidMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableVidMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryHitRate</key>
+			<integer>0</integer>
+			<key>orphanedReusableVidMemoryBytes</key>
+			<integer>5226147840</integer>
+			<key>orphanedReusableVidMemoryCount</key>
+			<integer>2754</integer>
+			<key>orphanedReusableVidMemoryHitRate</key>
+			<integer>94</integer>
+			<key>recoveryCount</key>
+			<integer>0</integer>
+			<key>stdTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>stdTextureCreationCount</key>
+			<integer>0</integer>
+			<key>stdTexturePageInBytes</key>
+			<integer>360448</integer>
+			<key>surfaceBufferPageInBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferPageOutBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferReadOutBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferTextureCreationCount</key>
+			<integer>0</integer>
+			<key>surfaceCopyInWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceCopyOutWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceCount</key>
+			<integer>18</integer>
+			<key>surfaceReadLockIdleWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceSetShapeIdleWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceTextureCreationCount</key>
+			<integer>0</integer>
+			<key>surfaceWriteLockIdleWaitTime</key>
+			<integer>0</integer>
+			<key>swapBytesPerSample</key>
+			<integer>0</integer>
+			<key>swapComplete2DWaitTime</key>
+			<integer>0</integer>
+			<key>swapCompleteGLWaitTime</key>
+			<integer>0</integer>
+			<key>swapCompleteVideoWaitTime</key>
+			<integer>0</integer>
+			<key>textureCount</key>
+			<integer>2964</integer>
+			<key>texturePageOutBytes</key>
+			<integer>0</integer>
+			<key>textureReadOutBytes</key>
+			<integer>0</integer>
+			<key>textureVolunteerUnloadBytes</key>
+			<integer>0</integer>
+			<key>volatileSurfaceCount</key>
+			<integer>0</integer>
+			<key>vramEvictionWaitTime</key>
+			<integer>0</integer>
+			<key>vramFreeBytes</key>
+			<integer>466993152</integer>
+		</dict>
+		<key>PerformanceStatisticsAccum</key>
+		<dict>
+			<key>Core Clock(MHz)</key>
+			<integer>111</integer>
+			<key>Device Utilization %</key>
+			<integer>11</integer>
+			<key>Fan Speed(%)</key>
+			<integer>19</integer>
+			<key>Fan Speed(RPM)</key>
+			<integer>683</integer>
+			<key>GPU Activity(%)</key>
+			<integer>1</integer>
+			<key>HWChannel GFX | Commands Completed</key>
+			<integer>2</integer>
+			<key>HWChannel GFX | Commands Submitted</key>
+			<integer>1</integer>
+			<key>HWChannel HIQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel HIQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel KIQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel KIQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0 | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0 | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA0_PAGE | Commands Completed</key>
+			<integer>2</integer>
+			<key>HWChannel SDMA0_PAGE | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1 | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1 | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1_PAGE | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel SDMA1_PAGE | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Dec | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Dec | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Enc | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0Enc | Commands Submitted</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0EncLLQ | Commands Completed</key>
+			<integer>0</integer>
+			<key>HWChannel VCN0EncLLQ | Commands Submitted</key>
+			<integer>0</integer>
+			<key>Memory Clock(MHz)</key>
+			<integer>1990</integer>
+			<key>Temperature(C)</key>
+			<integer>69</integer>
+			<key>Total Power(W)</key>
+			<integer>21</integer>
+			<key>agpTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>agpTextureCreationCount</key>
+			<integer>0</integer>
+			<key>agprefTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>agprefTextureCreationCount</key>
+			<integer>0</integer>
+			<key>bufferFlipCount</key>
+			<integer>0</integer>
+			<key>bufferSwapCount</key>
+			<integer>0</integer>
+			<key>clientGLWaitTime</key>
+			<integer>0</integer>
+			<key>clientSharedAllocatedBytes</key>
+			<integer>2265088</integer>
+			<key>context2DCount</key>
+			<integer>4</integer>
+			<key>contextCLCount</key>
+			<integer>0</integer>
+			<key>contextGLCount</key>
+			<integer>1</integer>
+			<key>contextVideoCount</key>
+			<integer>0</integer>
+			<key>dataBufferCount</key>
+			<integer>0</integer>
+			<key>dataBytesPerSample</key>
+			<integer>0</integer>
+			<key>finish2DWaitTime</key>
+			<integer>0</integer>
+			<key>finishAll2DWaitTime</key>
+			<integer>0</integer>
+			<key>finishCLWaitTime</key>
+			<integer>0</integer>
+			<key>finishGLWaitTime</key>
+			<integer>0</integer>
+			<key>finishVideoWaitTime</key>
+			<integer>0</integer>
+			<key>freeDataBufferWaitTime</key>
+			<integer>0</integer>
+			<key>freeSurfaceBackingWaitTime</key>
+			<integer>0</integer>
+			<key>freeSurfaceSwapBufferWaitTime</key>
+			<integer>0</integer>
+			<key>freeToAllocGPUAddressWaitTime</key>
+			<integer>0</integer>
+			<key>gartCacheBytes</key>
+			<integer>33554432</integer>
+			<key>gartFreeBytes</key>
+			<integer>11679555584</integer>
+			<key>gartMapInBytesPerSample</key>
+			<integer>0</integer>
+			<key>gartMapOutBytesPerSample</key>
+			<integer>0</integer>
+			<key>gartSizeBytes</key>
+			<integer>11811160064</integer>
+			<key>gartUsedBytes</key>
+			<integer>131604480</integer>
+			<key>hardwareSubmitWaitTime</key>
+			<integer>0</integer>
+			<key>hardwareWaitTime</key>
+			<integer>0</integer>
+			<key>inUseSysMemoryBytes</key>
+			<integer>131604480</integer>
+			<key>inUseVidMemoryBytes</key>
+			<integer>2877124608</integer>
+			<key>ioSurfacePageInBytes</key>
+			<integer>0</integer>
+			<key>ioSurfacePageOutBytes</key>
+			<integer>0</integer>
+			<key>ioSurfaceReadOutBytes</key>
+			<integer>0</integer>
+			<key>iosurfaceTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>iosurfaceTextureCreationCount</key>
+			<integer>0</integer>
+			<key>oolTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>oolTextureCreationCount</key>
+			<integer>0</integer>
+			<key>oolTexturePageInBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableSysMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableSysMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableVidMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedNonReusableVidMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryBytes</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryCount</key>
+			<integer>0</integer>
+			<key>orphanedReusableSysMemoryHitRate</key>
+			<integer>0</integer>
+			<key>orphanedReusableVidMemoryBytes</key>
+			<integer>5226147840</integer>
+			<key>orphanedReusableVidMemoryCount</key>
+			<integer>2754</integer>
+			<key>orphanedReusableVidMemoryHitRate</key>
+			<integer>94</integer>
+			<key>recoveryCount</key>
+			<integer>0</integer>
+			<key>stdTextureCreationBytes</key>
+			<integer>0</integer>
+			<key>stdTextureCreationCount</key>
+			<integer>0</integer>
+			<key>stdTexturePageInBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferPageInBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferPageOutBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferReadOutBytes</key>
+			<integer>0</integer>
+			<key>surfaceBufferTextureCreationCount</key>
+			<integer>0</integer>
+			<key>surfaceCopyInWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceCopyOutWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceCount</key>
+			<integer>18</integer>
+			<key>surfaceReadLockIdleWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceSetShapeIdleWaitTime</key>
+			<integer>0</integer>
+			<key>surfaceTextureCreationCount</key>
+			<integer>0</integer>
+			<key>surfaceWriteLockIdleWaitTime</key>
+			<integer>0</integer>
+			<key>swapBytesPerSample</key>
+			<integer>0</integer>
+			<key>swapComplete2DWaitTime</key>
+			<integer>0</integer>
+			<key>swapCompleteGLWaitTime</key>
+			<integer>0</integer>
+			<key>swapCompleteVideoWaitTime</key>
+			<integer>0</integer>
+			<key>textureCount</key>
+			<integer>2964</integer>
+			<key>texturePageOutBytes</key>
+			<integer>0</integer>
+			<key>textureReadOutBytes</key>
+			<integer>0</integer>
+			<key>textureVolunteerUnloadBytes</key>
+			<integer>0</integer>
+			<key>volatileSurfaceCount</key>
+			<integer>0</integer>
+			<key>vramEvictionWaitTime</key>
+			<integer>0</integer>
+			<key>vramFreeBytes</key>
+			<integer>466993152</integer>
+		</dict>
+		<key>ResNoAllocPaging</key>
+		<integer>0</integer>
+		<key>SWIP_properties</key>
+		<dict>
+			<key>EnableGDDR6MemoryTraining</key>
+			<integer>0</integer>
+			<key>EnableSwVCNFWLoading</key>
+			<integer>0</integer>
+			<key>EnableSwVCNUnifiedQueue</key>
+			<false/>
+			<key>EnableVCNFWLog</key>
+			<integer>0</integer>
+		</dict>
+		<key>SurfaceList</key>
+		<array/>
+		<key>cail_properties</key>
+		<dict/>
+		<key>dpm</key>
+		<integer>1</integer>
+	</dict>
+</array>
+</plist>
