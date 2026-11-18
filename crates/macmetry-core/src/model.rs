@@ -293,7 +293,10 @@ pub struct PowerDraw {
 pub enum ChargeState {
     Charging,
     Discharging,
+    /// Full and on the charger.
     Charged,
+    /// On the charger but holding the charge, as with optimized charging or a limit.
+    NotCharging,
     #[default]
     Unknown,
 }
@@ -313,6 +316,8 @@ pub struct Battery {
     pub current_a: Option<f64>,
     pub power_w: Option<f64>,
     pub minutes_remaining: Option<u32>,
+    /// Rated power of the connected charger.
+    pub adapter_w: Option<f64>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
