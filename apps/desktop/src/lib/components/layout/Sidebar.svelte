@@ -57,7 +57,6 @@
   .item.on :global(svg) { color: var(--accent); }
   .foot { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; border-top: 1px solid var(--line); }
   .status { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--text-2); padding: 0 10px; flex-wrap: wrap; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent); animation: pulse 2.4s ease-in-out infinite; }
-  .dot.off { background: var(--text-3); box-shadow: none; animation: none; }
-  @keyframes pulse { 50% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--good) 8%, transparent); } }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent); }
+  .dot.off { background: var(--text-3); box-shadow: none; }
 </style>
