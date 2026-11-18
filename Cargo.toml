@@ -26,7 +26,7 @@ libc = "0.2"
 parking_lot = "0.12"
 plist = "1"
 rmcp = { version = "3.7", default-features = false, features = ["server", "macros", "schemars", "transport-io"] }
-rusqlite = { version = "0.37", features = ["bundled"] }
+rusqlite = { version = "0.43", features = ["bundled"] }
 schemars = "1"
 serde = { version = "1", features = ["derive"] }
 # `float_roundtrip` makes numbers survive being written and read back exactly; the default parser can be off by one bit.
