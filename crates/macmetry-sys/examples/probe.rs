@@ -2,7 +2,7 @@
 //! fixtures: `cargo run -p macmetry-sys --example probe`.
 
 use macmetry_sys::{
-    cpu::CpuCollector, disk::DiskCollector, memory::MemoryCollector, network::NetworkCollector,
+    cpu::CpuCollector, disk::DiskCollector, gpu, memory::MemoryCollector, network::NetworkCollector,
     process::ProcessCollector, system, thermal::ThermalCollector,
 };
 use serde_json::json;
@@ -25,6 +25,7 @@ fn main() {
         "memory": memory.as_mut().and_then(|m| m.sample(elapsed).ok()),
         "disks": disk.sample(elapsed).ok(),
         "network": network.sample(elapsed).ok(),
+        "gpus": gpu::read().ok(),
         "thermal_pressure": thermal.and_then(|t| t.sample()),
         "processes": processes.sample(elapsed).ok().map(|all| {
             json!({ "readable": all.len(), "top_cpu": macmetry_core::top(&all, macmetry_core::ProcessSort::Cpu, 5, None),

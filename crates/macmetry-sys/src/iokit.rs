@@ -27,6 +27,8 @@ unsafe extern "C" {
     ) -> KernReturn;
     fn IORegistryEntryGetName(entry: IoObject, name: *mut c_char) -> KernReturn;
     fn IORegistryEntryGetChildIterator(entry: IoObject, plane: *const c_char, iterator: *mut IoObject) -> KernReturn;
+    fn IORegistryEntryGetParentEntry(entry: IoObject, plane: *const c_char, parent: *mut IoObject) -> KernReturn;
+    fn IORegistryEntryGetRegistryEntryID(entry: IoObject, id: *mut u64) -> KernReturn;
     fn IOServiceOpen(service: IoObject, owning_task: MachPort, kind: u32, connect: *mut IoObject) -> KernReturn;
     fn IOServiceClose(connect: IoObject) -> KernReturn;
     fn IOConnectCallStructMethod(
@@ -80,6 +82,22 @@ impl Service {
             return Vec::new();
         }
         drain(Iterator_(iter))
+    }
+
+    /// The entry that owns this one in the service plane.
+    pub fn parent(&self) -> Option<Service> {
+        let mut parent: IoObject = 0;
+        // SAFETY: the plane is a valid C string and `parent` a valid out pointer.
+        let rc = unsafe { IORegistryEntryGetParentEntry(self.0, c"IOService".as_ptr(), &mut parent) };
+        (rc == KERN_SUCCESS && parent != 0).then_some(Service(parent))
+    }
+
+    /// The number that identifies this entry for as long as the system runs.
+    pub fn entry_id(&self) -> Option<u64> {
+        let mut id = 0u64;
+        // SAFETY: `id` is a valid out pointer.
+        let rc = unsafe { IORegistryEntryGetRegistryEntryID(self.0, &mut id) };
+        (rc == KERN_SUCCESS).then_some(id)
     }
 
     /// Opens a user client connection, for example to the SMC.
@@ -209,5 +227,13 @@ mod tests {
         let root = services("IOPlatformExpertDevice").unwrap().remove(0);
         assert!(!root.name().is_empty());
         let _ = root.children();
+    }
+
+    #[test]
+    fn a_child_knows_its_parent() {
+        let root = services("IOPlatformExpertDevice").unwrap().remove(0);
+        let root_id = root.entry_id().expect("entries have ids");
+        let child = root.children().into_iter().next().expect("the platform expert has children");
+        assert_eq!(child.parent().and_then(|p| p.entry_id()), Some(root_id));
     }
 }
