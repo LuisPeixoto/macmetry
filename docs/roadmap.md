@@ -6,26 +6,26 @@ and pull requests are welcome; open an issue to discuss anything large first.
 macmetry is for macOS only, on Intel (x86_64) and Apple silicon (arm64). Every metric ships working on both
 architectures where the hardware has it, and a card that a Mac cannot supply is hidden instead of showing zeros.
 
-## Phase 1: Observe everything (v0.1)
+## ✅ Phase 1: Observe everything (v0.1)
 
-**Collectors** for the system (model, chip, performance and efficiency cores, uptime), **CPU** (total, per core, per
-cluster, load average, thermal pressure, frequency on Apple silicon), **memory** (app, wired, compressed, cached,
-swap, pressure, paging), **disk** (volumes, throughput and operations per second), **network** (per interface
-throughput, packets and errors), **GPU** (utilization and memory; frequency and power on Apple silicon),
-**sensors** (temperatures, fans and power from the SMC, plus the HID temperature sensors on Apple silicon),
-**energy** (CPU, GPU, Neural Engine and DRAM power on Apple silicon), **battery** (charge, health, cycles,
-temperature, power) and **processes** (CPU, memory, threads and disk I/O).
+**Collectors** for the system, **CPU** (per core and per cluster, load average, frequency on Apple silicon, thermal
+pressure), **memory** (app, wired, compressed, cached, swap, pressure, paging), **disk** (volumes, throughput per
+physical disk), **network** (per interface, with its type), **GPU** (usage, memory, clocks; temperature, power and fan
+on AMD), **sensors** (temperatures and fans from the SMC, and the HID temperature sensors of Apple silicon),
+**power** (Intel package energy counters and the Apple silicon energy model), **battery** and **processes**
+(see [Metrics](metrics.md), [Sensors](sensors.md)) · three faces on one core: a **Tauri app** with a menu bar item and
+popover, the **`macmetry` command line** ([CLI](cli.md)) and a **read-only MCP server** ([MCP](mcp.md)) ·
+**history** in SQLite ([History](history.md)) · **alerts** with notifications ([Alerts](alerts.md)) · **CSV and JSON
+export** · English and Brazilian Portuguese, dark and light · opt-in live tests and a fixture capture script for other
+Macs.
 
-**Three faces on one core**: a Tauri desktop app with a menu bar item and popover, the `macmetry` command line
-(`info`, `snapshot`, `watch`, `top`, `sensors`, `battery`, `history`, `export`) and a read-only MCP server.
+Not done in this phase, and carried forward: confirming the Apple silicon collectors on real hardware, replacing the
+synthetic battery fixtures with real captures, and signing and notarizing the builds.
 
-**History** in SQLite (one-second samples for 24 hours, one-minute aggregates for 30 days), **threshold alerts**
-with system notifications, **CSV and JSON export**, and an interface in English and Brazilian Portuguese.
+## Phase 2: Confirmed on every Mac, and a home on the web (v0.2)
 
-## Phase 2: A home on the web (v0.2)
-
-A website built from the same Markdown as the repository, with a sitemap, a link checker and screenshots. Guides in
-more languages.
+Fixtures and fixes from real Apple silicon Macs and from laptops, signed and notarized builds, and a website built from
+the same Markdown as the repository, with a sitemap and a link checker.
 
 ## Phase 3: Deeper energy (v0.3)
 
