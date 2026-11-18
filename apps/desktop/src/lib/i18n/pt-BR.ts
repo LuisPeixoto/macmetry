@@ -200,6 +200,19 @@ const ptBR: Record<string, string> = {
   "battery.adapter": "Carregador",
   "battery.voltage": "Tensão",
   "battery.history": "Carga ao longo do tempo",
+  "proc.subtitle": "Mostrando {n} processos",
+  "proc.search": "Buscar processos",
+  "proc.waiting": "Lendo os processos…",
+  "proc.no_match": "Nenhum processo corresponde à busca",
+  "proc.note": "Os processos mais ativos em CPU, memória e disco. O macOS só mostra processos de outros usuários a administradores, por isso eles não aparecem.",
+  "proc.name": "Nome",
+  "proc.pid": "PID",
+  "proc.user": "Usuário",
+  "proc.cpu": "CPU",
+  "proc.memory": "Memória",
+  "proc.threads": "Threads",
+  "proc.read": "Leitura de disco",
+  "proc.write": "Escrita de disco",
 };
 
 export default ptBR;

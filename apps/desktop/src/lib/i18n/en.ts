@@ -200,6 +200,19 @@ const en: Record<string, string> = {
   "battery.adapter": "Charger",
   "battery.voltage": "Voltage",
   "battery.history": "Charge over time",
+  "proc.subtitle": "Showing {n} processes",
+  "proc.search": "Search processes",
+  "proc.waiting": "Reading the processes…",
+  "proc.no_match": "No process matches your search",
+  "proc.note": "The busiest processes by CPU, memory and disk. macOS shows other users' processes only to administrators, so those are not listed.",
+  "proc.name": "Name",
+  "proc.pid": "PID",
+  "proc.user": "User",
+  "proc.cpu": "CPU",
+  "proc.memory": "Memory",
+  "proc.threads": "Threads",
+  "proc.read": "Disk read",
+  "proc.write": "Disk write",
 };
 
 export default en;
