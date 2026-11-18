@@ -1,0 +1,37 @@
+[package]
+name = "macmetry-desktop"
+description = "macmetry desktop app"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "macmetry_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "macmetry-desktop"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+macmetry-core.workspace = true
+macmetry-store.workspace = true
+macmetry-sys.workspace = true
+parking_lot.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tauri = { version = "2", features = ["tray-icon", "macos-private-api", "image-png"] }
+tauri-plugin-dialog = "2"
+tauri-plugin-notification = "2"
+tracing.workspace = true
+tracing-subscriber.workspace = true
+window-vibrancy = "0.6"
+
+[lints]
+workspace = true
