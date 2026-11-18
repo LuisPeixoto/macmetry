@@ -16,13 +16,13 @@ use crate::process::ProcessCollector;
 use crate::sensors::SensorCollector;
 use crate::system;
 use crate::thermal::ThermalCollector;
-use macmetry_core::{Arch, Battery, Gpu, PowerDraw, ProcessSort, Snapshot, SystemInfo, top};
+use macmetry_core::{Arch, Battery, Gpu, PowerDraw, Snapshot, SystemInfo, busiest};
 use serde::Serialize;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
-/// How many processes a snapshot carries when [`SampleOptions::processes`] is on. All of them would be hundreds of
-/// rows every second; the interface shows the busiest.
+/// How many processes a snapshot is built around when [`SampleOptions::processes`] is on: about half by CPU, two
+/// fifths by memory and a tenth by disk traffic, without repeats. All of them would be hundreds of rows every second.
 pub const TOP_PROCESSES: usize = 100;
 
 /// What this Mac can report. The interface hides the cards of what it cannot.
@@ -191,7 +191,9 @@ impl Sampler {
             let process_ms = now.duration_since(self.last_processes).as_millis() as u64;
             self.last_processes = now;
             if let Some(all) = keep("processes", self.processes.sample(process_ms)) {
-                snapshot.processes = top(&all, ProcessSort::Cpu, options.top_processes, None);
+                // The busiest by CPU, by memory and by disk, so a table sorted by any of them is complete.
+                let n = options.top_processes;
+                snapshot.processes = busiest(&all, n / 2, n * 2 / 5, n / 10);
             }
         }
         self.last_done = Instant::now();
@@ -277,7 +279,11 @@ mod tests {
         assert_eq!(s.battery.is_some(), caps.battery);
         assert_eq!(s.thermal_pressure.is_some(), caps.thermal_pressure);
         assert!(s.disks.is_some() && s.network.is_some());
-        assert!(!s.processes.is_empty() && s.processes.len() <= TOP_PROCESSES);
+        assert!(
+            !s.processes.is_empty() && s.processes.len() <= TOP_PROCESSES * 11 / 10,
+            "{} processes",
+            s.processes.len()
+        );
         assert!(s.processes.windows(2).all(|w| w[0].cpu_pct >= w[1].cpu_pct), "sorted by CPU");
 
         // The metrics a Mac provides are readable, and the ones it does not are absent rather than zero.
