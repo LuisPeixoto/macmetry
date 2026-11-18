@@ -1,7 +1,7 @@
 //! The command line's arguments. Everything is checked here, before any collector runs.
 
-use crate::timespec::{parse_duration, parse_time};
 use clap::{Parser, Subcommand, ValueEnum};
+use macmetry_core::timespec::{parse_duration, parse_time};
 use macmetry_core::{Metric, ProcessSort};
 use std::path::PathBuf;
 

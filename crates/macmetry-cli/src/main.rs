@@ -3,7 +3,6 @@
 mod args;
 mod commands;
 mod render;
-mod timespec;
 
 use clap::Parser;
 
