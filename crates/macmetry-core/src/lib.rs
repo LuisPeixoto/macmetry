@@ -7,9 +7,11 @@ pub mod model;
 pub mod processes;
 pub mod rates;
 pub mod ring;
+pub mod series;
 pub mod units;
 
 pub use metric::{Metric, Unit};
 pub use model::*;
 pub use processes::{ProcessSort, sort_processes, top};
 pub use ring::Ring;
+pub use series::{Point, Series};
