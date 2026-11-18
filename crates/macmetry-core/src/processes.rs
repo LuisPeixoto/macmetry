@@ -55,6 +55,24 @@ pub fn top(processes: &[ProcessSample], by: ProcessSort, limit: usize, filter: O
     picked
 }
 
+/// The processes worth showing in a table that can be sorted by any column: the busiest by CPU, by memory and by disk
+/// traffic, without repeats, in CPU order. Keeping only the busiest by CPU would hide a process that holds gigabytes
+/// but is idle, which is exactly what a person sorting by memory is looking for.
+pub fn busiest(processes: &[ProcessSample], by_cpu: usize, by_memory: usize, by_disk: usize) -> Vec<ProcessSample> {
+    let mut picked: std::collections::HashSet<i32> = std::collections::HashSet::new();
+    for (sort, n) in [
+        (ProcessSort::Cpu, by_cpu),
+        (ProcessSort::Memory, by_memory),
+        (ProcessSort::DiskRead, by_disk),
+        (ProcessSort::DiskWrite, by_disk),
+    ] {
+        picked.extend(top(processes, sort, n, None).into_iter().map(|p| p.pid));
+    }
+    let mut out: Vec<ProcessSample> = processes.iter().filter(|p| picked.contains(&p.pid)).cloned().collect();
+    sort_processes(&mut out, ProcessSort::Cpu);
+    out
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -99,5 +117,32 @@ mod tests {
         assert_eq!(ProcessSort::from_key("mem"), Some(ProcessSort::Memory));
         assert_eq!(ProcessSort::from_key("write"), Some(ProcessSort::DiskWrite));
         assert_eq!(ProcessSort::from_key("nope"), None);
+    }
+
+    #[test]
+    fn busiest_keeps_an_idle_process_that_holds_a_lot_of_memory() {
+        let mut all: Vec<ProcessSample> = (0..100).map(|i| p(i, "busy", 50.0 - f64::from(i) * 0.4, 1_000)).collect();
+        all.push(ProcessSample {
+            pid: 999,
+            name: "idle-hog".into(),
+            cpu_pct: 0.0,
+            memory_bytes: 9_000_000_000,
+            ..Default::default()
+        });
+        // Only the top 10 by CPU would drop it; the memory selection keeps it.
+        let only_cpu = top(&all, ProcessSort::Cpu, 10, None);
+        assert!(only_cpu.iter().all(|x| x.pid != 999));
+        let picked = busiest(&all, 10, 3, 0);
+        assert!(picked.iter().any(|x| x.pid == 999));
+        assert!(picked.len() <= 13, "{}", picked.len());
+        assert!(picked.windows(2).all(|w| w[0].cpu_pct >= w[1].cpu_pct), "in CPU order");
+    }
+
+    #[test]
+    fn busiest_has_no_repeats_and_handles_empty_and_zero() {
+        assert!(busiest(&[], 5, 5, 5).is_empty());
+        let one = vec![p(1, "a", 5.0, 10)];
+        assert_eq!(busiest(&one, 5, 5, 5).len(), 1, "a process that is first in every list is listed once");
+        assert!(busiest(&one, 0, 0, 0).is_empty());
     }
 }

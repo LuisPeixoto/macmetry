@@ -14,6 +14,7 @@
   import Gpu from "./lib/components/views/Gpu.svelte";
   import Sensors from "./lib/components/views/Sensors.svelte";
   import Battery from "./lib/components/views/Battery.svelte";
+  import Processes from "./lib/components/views/Processes.svelte";
   import EmptyState from "./lib/components/ui/EmptyState.svelte";
 
   onMount(() => {
@@ -53,6 +54,8 @@
       <Sensors />
     {:else if nav.view === "battery"}
       <Battery />
+    {:else if nav.view === "processes"}
+      <Processes />
     {:else}
       <EmptyState icon="info" title={t(`nav.${nav.view}`)} />
     {/if}
