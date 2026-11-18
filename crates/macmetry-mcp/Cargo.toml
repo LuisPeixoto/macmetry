@@ -12,10 +12,17 @@ rust-version.workspace = true
 macmetry-core.workspace = true
 macmetry-store.workspace = true
 macmetry-sys.workspace = true
+parking_lot.workspace = true
+rmcp.workspace = true
+schemars.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
 tokio.workspace = true
+
+[dev-dependencies]
+rmcp = { workspace = true, features = ["client"] }
+tempfile.workspace = true
 
 [lints]
 workspace = true
