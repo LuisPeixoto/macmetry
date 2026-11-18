@@ -1,0 +1,35 @@
+name: Bug report
+description: Something is wrong, missing or inaccurate
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you see instead? Screenshots help.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: macmetry version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: mac
+    attributes:
+      label: Mac and macOS version
+      description: For example "MacBook Pro 14-inch, M3 Pro, macOS 15.2" or "iMac 2019, Intel, macOS 14.7".
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: output
+    attributes:
+      label: Output of `macmetry snapshot --json`
+      description: Remove anything you do not want to share (process names can be personal).
+      render: json

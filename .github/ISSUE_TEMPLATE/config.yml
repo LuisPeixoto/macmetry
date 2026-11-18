@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Troubleshooting guide
+    url: https://github.com/LuisPeixoto/macmetry/blob/main/docs/troubleshooting.md
+    about: Missing sensors, empty cards and other common problems.
+  - name: Report a security vulnerability
+    url: https://github.com/LuisPeixoto/macmetry/security/advisories/new
+    about: Please report vulnerabilities privately, not as a public issue.
