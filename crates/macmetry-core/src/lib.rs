@@ -9,6 +9,7 @@ pub mod processes;
 pub mod rates;
 pub mod ring;
 pub mod series;
+pub mod timespec;
 pub mod units;
 
 pub use metric::{Metric, Unit};

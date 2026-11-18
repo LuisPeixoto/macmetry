@@ -120,6 +120,14 @@ pub fn run_command(command: Command) -> Result<()> {
             write_output(output.as_deref(), &text, force)
         }
         Command::Record { interval } => record(interval),
+        Command::Mcp => {
+            // Standard output belongs to the protocol from here on, so nothing else may print to it.
+            let runtime =
+                tokio::runtime::Builder::new_multi_thread().enable_all().build().context("Could not start")?;
+            runtime
+                .block_on(macmetry_mcp::serve(macmetry_store::history_path()))
+                .map_err(|e| anyhow::anyhow!("The MCP server stopped: {e}"))
+        }
         Command::Metrics => {
             for m in Metric::ALL {
                 println!("{:<22} {:<28} {:?}", m.key(), m.label(), m.unit());
