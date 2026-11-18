@@ -213,6 +213,10 @@ const en: Record<string, string> = {
   "proc.threads": "Threads",
   "proc.read": "Disk read",
   "proc.write": "Disk write",
+  "pop.open": "Open macmetry",
+  "pop.quit": "Quit",
+  "pop.temp": "Temperature",
+  "pop.power": "Power",
 };
 
 export default en;

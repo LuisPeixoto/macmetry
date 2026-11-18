@@ -112,3 +112,7 @@ button { font: inherit; color: inherit; }
 .table td.name { max-width: 260px; overflow: hidden; text-overflow: ellipsis; }
 .meter { height: 7px; border-radius: 4px; background: var(--grid); overflow: hidden; min-width: 60px; }
 .meter > i { display: block; height: 100%; border-radius: 4px; transition: width 0.4s; }
+
+/* the popover is its own page; it sits on the frosted glass, so nothing behind its rows is painted */
+body.popover { background: transparent; }
+:root.no-glass body.popover { background: var(--sidebar-tint); }

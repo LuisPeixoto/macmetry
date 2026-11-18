@@ -213,6 +213,10 @@ const ptBR: Record<string, string> = {
   "proc.threads": "Threads",
   "proc.read": "Leitura de disco",
   "proc.write": "Escrita de disco",
+  "pop.open": "Abrir o macmetry",
+  "pop.quit": "Sair",
+  "pop.temp": "Temperatura",
+  "pop.power": "Energia",
 };
 
 export default ptBR;

@@ -10,7 +10,7 @@ use tauri::{AppHandle, Manager, PhysicalPosition, Rect, WebviewUrl, WebviewWindo
 use window_vibrancy::NSVisualEffectMaterial;
 
 const POPOVER_WIDTH: f64 = 340.0;
-const POPOVER_HEIGHT: f64 = 540.0;
+const POPOVER_HEIGHT: f64 = 560.0;
 /// A click on the icon while the popover is open first takes focus away from it (which hides it) and then arrives
 /// as a click; this window of time keeps that click from opening it again.
 const REOPEN_GUARD_MS: u64 = 250;
