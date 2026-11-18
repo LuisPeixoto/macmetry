@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { areaPath, extent, lastValue, linePath, loadLevel, nearestIndex, niceStep, niceTicks, yRange } from "./chart.ts";
+import { areaPath, byteTicks, extent, lastValue, linePath, loadLevel, nearestIndex, niceStep, niceTicks, yRange } from "./chart.ts";
 
 test("ticks fall on round numbers and cover the data", () => {
   assert.deepEqual(niceTicks(0, 100, 4), [0, 25, 50, 75, 100], "0..100 in quarters");
@@ -76,4 +76,14 @@ test("the last real value is the latest one that exists", () => {
 
 test("load levels share thresholds", () => {
   assert.deepEqual([null, 10, 70, 89, 90, 100].map(loadLevel), ["ok", "ok", "busy", "busy", "hot", "hot"]);
+});
+
+test("size and speed axes land on round numbers of their own unit", () => {
+  // 238 MB of data: the old axis said 47.7 MB, 95.4 MB ...
+  const mb = 1024 ** 2;
+  assert.deepEqual(byteTicks(238 * mb, 1024).map((v) => v / mb), [0, 50, 100, 150, 200, 250], "whole multiples of 50 MB");
+  assert.deepEqual(byteTicks(7_300_000, 1000).map((v) => v / 1e6), [0, 2, 4, 6, 8]);
+  assert.deepEqual(byteTicks(0, 1000), [0, 1]);
+  assert.deepEqual(byteTicks(Number.NaN, 1024), [0, 1]);
+  assert.ok(byteTicks(3, 1024).at(-1)! >= 3, "a few bytes still gets an axis");
 });

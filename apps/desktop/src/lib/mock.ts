@@ -64,7 +64,7 @@ export function snapshotAt(profile: Profile, t: number): Snapshot {
   const power = m3 ? 2.2 + load * 0.2 + 1.5 * noise(t, 5) : 28 + load * 1.1 + 6 * noise(t, 5);
   const iface = (name: string, kind: InterfaceKind, rx: number, tx: number) => ({
     name, kind, up: true, rx_bps: rx, tx_bps: tx, rx_packets_ps: rx / 900, tx_packets_ps: tx / 1100, rx_errors: 0, tx_errors: 0,
-    rx_total: 41 * GB + t * 1500, tx_total: 6 * GB + t * 300, addresses: [],
+    rx_total: 41 * GB + (t / 1000 % 86400) * 1500, tx_total: 6 * GB + (t / 1000 % 86400) * 300, addresses: [],
   });
   const burst = Math.max(0, wave(t, 31) - 0.2) * 6.5 * MB * (0.4 + noise(t, 8));
   const procs: ProcessSample[] = APPS.map(([name, cpu, memMb], i) => ({

@@ -1,7 +1,7 @@
 <script lang="ts">
   // The main time chart: thin lines, recessive grid, a crosshair with a tooltip, a legend when there are two or more
   // series, and a table view for anyone who prefers numbers. Missing values break the line; they are never drawn as 0.
-  import { areaPath, extent, lastValue, linePath, nearestIndex, niceTicks, yRange, type Value } from "../../chart.ts";
+  import { areaPath, byteTicks, extent, lastValue, linePath, nearestIndex, niceTicks, yRange, type Value } from "../../chart.ts";
   import { fmt } from "../../stores/fmt.svelte.ts";
   import { t } from "../../stores/i18n.svelte.ts";
   import type { Unit } from "../../types.ts";
@@ -29,7 +29,7 @@
   const scale = $derived.by(() => {
     const e = extent(series.map((s) => s.values));
     const [lo, hi] = yRange(e, unit === "percent" ? "percent" : "other", { max: yMax });
-    const ticks = unit === "percent" ? [0, 25, 50, 75, 100] : niceTicks(lo, hi, 4);
+    const ticks = unit === "percent" ? [0, 25, 50, 75, 100] : unit === "bytes" ? byteTicks(hi, 1024) : unit === "bytes_per_second" ? byteTicks(hi, 1000) : niceTicks(lo, hi, 4);
     const top = Math.max(hi, ticks.at(-1) ?? hi);
     return { lo, hi: top, ticks };
   });

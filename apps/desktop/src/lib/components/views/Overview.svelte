@@ -118,7 +118,6 @@
 </div>
 
 <style>
-  .scroll { overflow-y: auto; padding: 0 28px 28px; flex: 1; min-height: 0; }
   .gauges { grid-template-columns: repeat(auto-fit, minmax(205px, 1fr)); }
   .two { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
   @media (max-width: 1100px) { .two { grid-template-columns: 1fr; } }
