@@ -70,6 +70,9 @@ pub struct Sampler {
     has_gpu: bool,
     has_battery: bool,
     last: Instant,
+    /// When the previous reading finished. `last` is when it began, which is what rates are measured from; this is
+    /// what "how long ago" means to a caller deciding whether to wait.
+    last_done: Instant,
     last_processes: Instant,
     capabilities: Capabilities,
 }
@@ -121,6 +124,7 @@ impl Sampler {
             has_gpu,
             has_battery,
             last: now,
+            last_done: now,
             last_processes: now,
             capabilities,
         }
@@ -137,7 +141,7 @@ impl Sampler {
     /// How long ago the previous sample (or the baseline) was taken. A caller that needs meaningful rates waits
     /// until this is long enough.
     pub fn idle_for(&self) -> Duration {
-        self.last.elapsed()
+        self.last_done.elapsed()
     }
 
     /// Measures everything now. Rates cover the time since the previous call (or since [`Sampler::new`]).
@@ -190,6 +194,7 @@ impl Sampler {
                 snapshot.processes = top(&all, ProcessSort::Cpu, options.top_processes, None);
             }
         }
+        self.last_done = Instant::now();
         snapshot
     }
 }
