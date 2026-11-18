@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYNTHETIC: an older Intel laptop that reports capacities in mAh and a charger. See the note in the other file. -->
+<plist version="1.0">
+<dict>
+  <key>BatteryInstalled</key><true/>
+  <key>CurrentCapacity</key><integer>2900</integer>
+  <key>MaxCapacity</key><integer>5800</integer>
+  <key>DesignCapacity</key><integer>6559</integer>
+  <key>CycleCount</key><integer>398</integer>
+  <key>Temperature</key><integer>3290</integer>
+  <key>Voltage</key><integer>11800</integer>
+  <key>Amperage</key><integer>2100</integer>
+  <key>IsCharging</key><true/>
+  <key>ExternalConnected</key><true/>
+  <key>FullyCharged</key><false/>
+  <key>TimeRemaining</key><integer>65535</integer>
+  <key>AvgTimeToFull</key><integer>95</integer>
+  <key>AdapterDetails</key><dict><key>Watts</key><integer>87</integer></dict>
+</dict>
+</plist>

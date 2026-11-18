@@ -11,6 +11,8 @@ pub mod error;
 pub mod value;
 
 #[cfg(target_os = "macos")]
+pub mod battery;
+#[cfg(target_os = "macos")]
 pub mod cf;
 #[cfg(target_os = "macos")]
 pub mod cpu;
