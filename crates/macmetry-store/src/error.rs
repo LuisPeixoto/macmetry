@@ -5,7 +5,9 @@ use thiserror::Error;
 
 #[derive(Debug, Error)]
 pub enum StoreError {
-    #[error("There is no history yet at {0}. Open macmetry for a minute and try again.")]
+    #[error(
+        "There is no history yet at {0}. Open the macmetry app, or run `macmetry record`, for a minute and try again."
+    )]
     NoHistory(PathBuf),
     #[error("The history database could not be used: {0}")]
     Database(#[from] rusqlite::Error),
