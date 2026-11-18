@@ -1,0 +1,21 @@
+[package]
+name = "macmetry-mcp"
+description = "macmetry MCP server: read-only system metrics for AI assistants."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+macmetry-core.workspace = true
+macmetry-store.workspace = true
+macmetry-sys.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true
