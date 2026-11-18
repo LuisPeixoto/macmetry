@@ -246,6 +246,15 @@ impl Store {
         Ok(Series { metric, resolution_ms: bucket, points })
     }
 
+    /// Deletes every recorded sample and aggregate. The settings and the schema stay.
+    pub fn clear(&self) -> Result<()> {
+        self.conn
+            .execute_batch("DELETE FROM raw; DELETE FROM minutes; DELETE FROM meta WHERE key = 'aggregated_to';")?;
+        // Hand the freed pages back to the file system so the history really shrinks.
+        self.conn.execute_batch("VACUUM;")?;
+        Ok(())
+    }
+
     pub fn stats(&self) -> Result<Stats> {
         let (raw_rows, oldest, newest): (i64, Option<i64>, Option<i64>) =
             self.conn.query_row("SELECT COUNT(*), MIN(ts), MAX(ts) FROM raw", [], |row| {
