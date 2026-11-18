@@ -7,6 +7,10 @@
   import { t } from "./lib/stores/i18n.svelte.ts";
   import Sidebar from "./lib/components/layout/Sidebar.svelte";
   import Overview from "./lib/components/views/Overview.svelte";
+  import Cpu from "./lib/components/views/Cpu.svelte";
+  import Memory from "./lib/components/views/Memory.svelte";
+  import Disk from "./lib/components/views/Disk.svelte";
+  import Network from "./lib/components/views/Network.svelte";
   import EmptyState from "./lib/components/ui/EmptyState.svelte";
 
   onMount(() => {
@@ -32,6 +36,14 @@
       <EmptyState icon="overview" title={t("status.starting")} />
     {:else if nav.view === "overview"}
       <Overview />
+    {:else if nav.view === "cpu"}
+      <Cpu />
+    {:else if nav.view === "memory"}
+      <Memory />
+    {:else if nav.view === "disk"}
+      <Disk />
+    {:else if nav.view === "network"}
+      <Network />
     {:else}
       <EmptyState icon="info" title={t(`nav.${nav.view}`)} />
     {/if}
