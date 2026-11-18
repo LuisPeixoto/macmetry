@@ -1,0 +1,44 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+default-members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+repository = "https://github.com/LuisPeixoto/macmetry"
+homepage = "https://github.com/LuisPeixoto/macmetry"
+readme = "README.md"
+authors = ["Luis Peixoto"]
+rust-version = "1.90"
+
+[workspace.dependencies]
+macmetry-core = { path = "crates/macmetry-core" }
+macmetry-sys = { path = "crates/macmetry-sys" }
+macmetry-store = { path = "crates/macmetry-store" }
+macmetry-mcp = { path = "crates/macmetry-mcp" }
+
+anyhow = "1"
+clap = { version = "4", features = ["derive", "env"] }
+dirs = "6"
+libc = "0.2"
+parking_lot = "0.12"
+rusqlite = { version = "0.37", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[workspace.lints.clippy]
+undocumented_unsafe_blocks = "warn"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
